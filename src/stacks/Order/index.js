@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 const Order = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View style={styles.page}>
         <Text>Order Page</Text>
       </View>
@@ -14,6 +14,10 @@ const Order = () => {
 export default Order;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   page: {
     paddingHorizontal: 18,
     paddingTop: 30,

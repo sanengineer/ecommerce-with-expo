@@ -13,6 +13,7 @@ import StarEnable from "./icon_start-enable.svg";
 import StarDisable from "./icon_start-disable.svg";
 import IconAngleLeftBig from "./icon_angle-left-big.svg";
 import IconMoreHorizontal from "./icon_more-horizontal.svg";
+import IconSecurity from "./icon_security.svg";
 
 export {
   IconHome,
@@ -30,4 +31,5 @@ export {
   StarDisable,
   IconAngleLeftBig,
   IconMoreHorizontal,
+  IconSecurity,
 };

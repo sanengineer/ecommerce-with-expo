@@ -9,6 +9,7 @@ import Order from "./Order";
 import StartScreen from "./StartScreen";
 import Bio from "./Bio";
 import Shipping from "./Shipping";
+import Security from "./Security";
 
 export {
   LogIn,
@@ -22,4 +23,5 @@ export {
   StartScreen,
   Bio,
   Shipping,
+  Security,
 };

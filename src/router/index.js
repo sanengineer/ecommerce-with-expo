@@ -13,6 +13,7 @@ import {
   StartScreen,
   Bio,
   Shipping,
+  Security,
 } from "../stacks";
 import { BottomNav } from "../components";
 
@@ -66,6 +67,11 @@ const Router = () => {
       <Stack.Screen
         name="Shipping"
         component={Shipping}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Security"
+        component={Security}
         options={{ headerShown: false }}
       />
       <Stack.Screen

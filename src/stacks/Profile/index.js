@@ -8,15 +8,20 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { Button, IconContainer, ListText, Space } from "../../components";
+import { IconContainer, ListText, Space } from "../../components";
 import { useSelector } from "react-redux";
-import { IconArrowRight, IconBio, IconShipping } from "../../assets";
+import {
+  IconArrowRight,
+  IconBio,
+  IconSecurity,
+  IconShipping,
+} from "../../assets";
 
 const Profile = ({ navigation }) => {
   const whoami = useSelector((state) => state.who_ami_reducer.who_ami);
   //
   //debug
-  console.log("avatar_profile:", whoami.avatar);
+  // console.log("avatar_profile:", whoami.avatar);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -88,12 +93,61 @@ const Profile = ({ navigation }) => {
                 </IconContainer>
               </View>
             </Pressable>
+            <Space height={10} />
+            <Pressable
+              onPress={() => navigation.navigate("Security")}
+              style={({ pressed }) => [
+                {
+                  backgroundColor: pressed
+                    ? "rgba(151, 151, 151, 0.1)"
+                    : "white",
+                },
+              ]}
+            >
+              <View style={styles.listContainer}>
+                <View style={styles.listIconNameContainer}>
+                  <IconContainer>
+                    <IconSecurity />
+                  </IconContainer>
+                  <Space width={10} />
+                  <ListText text="Security" />
+                </View>
+                <IconContainer>
+                  <IconArrowRight />
+                </IconContainer>
+              </View>
+            </Pressable>
           </View>
-          <TouchableOpacity>
-            <View style={{ marginBottom: 30 }}>
-              <ListText text="Logout" color="red" />
-            </View>
-          </TouchableOpacity>
+          <Space height={30} />
+
+          <View
+            style={{
+              justifyContent: "center",
+              flexDirection: "row",
+            }}
+          >
+            <TouchableOpacity>
+              <View
+                style={{
+                  alignItems: "center",
+                  // backgroundColor: "cyan",
+                  // width: 120,
+                  // height: 100,
+                  padding: 20,
+                }}
+              >
+                <Text
+                  style={{
+                    fontFamily: "Montserrat-Bold",
+                    color: "red",
+                    fontSize: 16,
+                  }}
+                >
+                  Logout
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
 
           {/* <View
             style={{
@@ -115,7 +169,7 @@ const Profile = ({ navigation }) => {
             </View>
           </View> */}
         </View>
-        <Space height={40} />
+        {/* <Space height={40} /> */}
 
         {/* </ScrollView> */}
       </View>
@@ -128,8 +182,7 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    // backgroundColor: "red",
+    backgroundColor: "#fff",
   },
   page: {
     // paddingHorizontal: 18,

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 const Search = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View style={styles.page}>
         <Text>Search Page</Text>
       </View>
@@ -14,6 +14,7 @@ const Search = () => {
 export default Search;
 
 const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#fff" },
   page: {
     paddingHorizontal: 18,
     paddingTop: 30,

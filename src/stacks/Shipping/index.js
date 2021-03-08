@@ -143,7 +143,7 @@ const Shipping = ({ navigation }) => {
           <View style={styles.mainContianer}>
             <Text style={styles.titleMain}>Shipping Address</Text>
             <Space height={20} />
-            <View style={styles.shippingContainer}>
+            <View>
               <ShippingMap
                 data={data}
                 showModalOnList={toggleModal}

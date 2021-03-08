@@ -129,6 +129,7 @@ const styles = StyleSheet.compose({
     paddingBottom: 6,
     paddingHorizontal: 30,
     justifyContent: "space-between",
+    backgroundColor: "#fff",
   },
 
   container: {

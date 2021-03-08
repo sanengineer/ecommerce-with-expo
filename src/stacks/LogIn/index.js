@@ -22,18 +22,18 @@ const LogIn = ({ navigation }) => {
 
   //
   //debug
-  console.log("dispatch:", dispatch);
-  console.log("data_form:", data_form);
+  // console.log("dispatch:", dispatch);
+  // console.log("data_form:", data_form);
 
   const onSubmit = () => {
-    console.log(
-      "\n",
-      "---------------",
-      "\n",
-      "form:",
-      form,
-      "---------------"
-    );
+    // console.log(
+    //   "\n",
+    //   "---------------",
+    //   "\n",
+    //   "form:",
+    //   form,
+    //   "---------------"
+    // );
     dispatch(authLoginAction(form, navigation));
   };
 
