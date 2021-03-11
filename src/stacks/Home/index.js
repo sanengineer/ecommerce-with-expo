@@ -25,6 +25,8 @@ import { FoodLists, ListText, Space } from "../../components";
 import { getData } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { whoAmiAction } from "../../redux/actions/whoAmiAction";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -36,95 +38,102 @@ console.log("screen:", screen);
 
 const data = [
   {
-    product_key: 1,
-    name_product: "Double Shoot Iced Shaken Espresso",
+    product_id: 1,
+    name: "Double Shoot Iced Shaken Espresso",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 30000,
+    stock: 20,
     image: AvocadoFruit,
     num_rate: 10,
   },
   {
-    product_key: 2,
-    name_product: "Carramel Machiato - 250ml",
+    product_id: 2,
+    name: "Carramel Machiato - 250ml",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 10,
     image: StrawberryFruit,
     num_rate: 30,
   },
   {
-    product_key: 3,
-    name_product: "Caffe Americano - 250ml",
+    product_id: 3,
+    name: "Caffe Americano - 250ml",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 40,
     image: PineappleFruit,
     num_rate: 20,
   },
   {
-    product_key: 4,
-    name_product: "Arabica Whole Beans Light Roast - 100gr",
+    product_id: 4,
+    name: "Arabica Whole Beans Light Roast - 100gr",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 22,
     image: MangoFruit,
     num_rate: 12,
   },
   {
-    product_key: 5,
-    name_product: "Cold Brew - 250ml",
+    product_id: 5,
+    name: "Cold Brew - 250ml",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 16,
     image: DragonFruit,
     num_rate: 12,
   },
   {
-    product_key: 6,
-    name_product: "Caffe Americano - 1L",
+    product_id: 6,
+    name: "Caffe Americano - 1L",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 18,
     image: DragonFruit,
     num_rate: 14,
   },
   {
-    product_key: 7,
-    name_product: "Palm Sugar Coffee Milk - 1L",
+    product_id: 7,
+    name: "Palm Sugar Coffee Milk - 1L",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
+    stock: 18,
     image: DragonFruit,
     num_rate: 16,
   },
-  // { key: 'G' }, { key: 'H' },
-  // { key: 'I' }, { key: 'J' },
-  // { key: 'K' },
-  // { key: 'L' },
 ];
 
-const renderItem = ({ item, index }) => (
-  // if (item.empty === true) {
-  //   return <View style={[styles.item, styles.itemInvisible]} />;
-  // }
-  // return (
-  <View style={styles.itemContainer}>
-    <Image source={item.image} style={styles.itemImage} />
-    <View style={styles.item}>
-      <Text style={styles.itemText}>{item.name_product}</Text>
-      <Space height={6} />
-      <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
-      <View style={styles.itemRateContainer}>
-        <View style={styles.itemStars}>
-          <View style={styles.itemStar}>
-            <StarEnable />
-          </View>
-          <View style={styles.itemStar}>
-            <StarEnable />
-          </View>
-          <View style={styles.itemStar}>
-            <StarEnable />
-          </View>
-          <View style={styles.itemStar}>
-            <StarEnable />
-          </View>
-          <View style={styles.itemStar}>
-            <StarEnable />
-          </View>
-        </View>
-        <Space width={10} />
-        <Text style={styles.itemNumRate}>({item.num_rate})</Text>
-      </View>
-    </View>
-  </View>
-);
+const categories = [
+  {
+    category_id: 1,
+    category_name: "Fashion Tops",
+    featured_image: ShoesImage,
+  },
+  {
+    category_id: 2,
+    category_name: "Fashion Bottoms",
+    featured_image: AvocadoFruit,
+  },
+  {
+    category_id: 3,
+    category_name: "Fashion Outter",
+    featured_image: StrawberryFruit,
+  },
+  {
+    category_id: 4,
+    category_name: "Shoes",
+    featured_image: MangoFruit,
+  },
+  {
+    category_id: 5,
+    category_name: "Accessoris",
+    featured_image: PineappleFruit,
+  },
+  {
+    category_id: 6,
+    category_name: "Beverage",
+    featured_image: DragonFruit,
+  },
+];
 
 const numColumns = 2;
 
@@ -133,6 +142,7 @@ const Home = () => {
   const [token, setToken] = React.useState();
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const error = useSelector((state) => state.who_ami_reducer);
   const avaImg = useSelector((state) => state.who_ami_reducer.who_ami.avatar);
 
@@ -160,77 +170,38 @@ const Home = () => {
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={{ flexDirection: "row", paddingHorizontal: 18 }}>
-              <View
-                style={{
-                  // paddingVertical: 0,
-                  // paddingHorizontal: 20,
-                  borderColor: "#cecece",
-                  borderWidth: 1,
-                  // backgroundColor: "red",
+              {categories.map((item) => (
+                <>
+                  <View
+                    style={{
+                      // paddingVertical: 0,
+                      // paddingHorizontal: 20,
+                      borderColor: "#cecece",
+                      borderWidth: 1,
+                      // backgroundColor: "red",
+                      borderRadius: 6,
+                    }}
+                    key={item.category_id}
+                  >
+                    <TouchableOpacity
+                      style={{
+                        // backgroundColor: "red",
+                        borderRadius: 6,
+                      }}
+                      onPress={() => navigation.navigate("Category", item)}
+                    >
+                      <View style={{ paddingHorizontal: 12 }}>
+                        <ListText
+                          text={`${item.category_name}`}
+                          style={{ justifyContent: "center" }}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
 
-                  borderRadius: 6,
-                }}
-              >
-                <View style={{ paddingHorizontal: 12 }}>
-                  <ListText
-                    text="Fashion"
-                    style={{ justifyContent: "center" }}
-                  />
-                </View>
-              </View>
-              <Space width={20} />
-              <View
-                style={{
-                  // paddingVertical: 0,
-                  // paddingHorizontal: 20,
-                  borderColor: "#cecece",
-                  borderWidth: 1,
-                  // backgroundColor: "red",
-
-                  borderRadius: 6,
-                }}
-              >
-                <View style={{ paddingHorizontal: 12 }}>
-                  <ListText text="Food" style={{ justifyContent: "center" }} />
-                </View>
-              </View>
-
-              <Space width={20} />
-              <View
-                style={{
-                  // paddingVertical: 0,
-                  // paddingHorizontal: 20,
-                  borderColor: "#cecece",
-                  borderWidth: 1,
-                  // backgroundColor: "red",
-
-                  borderRadius: 6,
-                }}
-              >
-                <View style={{ paddingHorizontal: 12 }}>
-                  <ListText
-                    text="Accessories"
-                    style={{ justifyContent: "center" }}
-                  />
-                </View>
-              </View>
-
-              <Space width={20} />
-              <View
-                style={{
-                  // paddingVertical: 0,
-                  // paddingHorizontal: 20,
-                  borderColor: "#cecece",
-                  borderWidth: 1,
-                  // backgroundColor: "red",
-
-                  borderRadius: 6,
-                }}
-              >
-                <View style={{ paddingHorizontal: 12 }}>
-                  <ListText text="Blog" style={{ justifyContent: "center" }} />
-                </View>
-              </View>
+                  <Space width={20} />
+                </>
+              ))}
             </View>
           </ScrollView>
 
@@ -238,6 +209,49 @@ const Home = () => {
         </View>
       </ScrollView>
     </View>
+  );
+
+  const renderItem = ({ item }) => (
+    // if (item.empty === true) {
+    //   return <View style={[styles.item, styles.itemInvisible]} />;
+    // }
+    // return (
+    // <TouchableOpacity key={item.product_id}>
+    <View style={styles.itemContainer}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate("Product", item)}
+      >
+        <Image source={item.image} style={styles.itemImage} />
+        <View style={styles.item}>
+          <Text style={styles.itemText}>{item.name}</Text>
+          <Space height={6} />
+          <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
+          <View style={styles.itemRateContainer}>
+            <View style={styles.itemStars}>
+              <View style={styles.itemStar}>
+                <StarEnable />
+              </View>
+              <View style={styles.itemStar}>
+                <StarEnable />
+              </View>
+              <View style={styles.itemStar}>
+                <StarEnable />
+              </View>
+              <View style={styles.itemStar}>
+                <StarEnable />
+              </View>
+              <View style={styles.itemStar}>
+                <StarEnable />
+              </View>
+            </View>
+            <Space width={10} />
+            <Text style={styles.itemNumRate}>({item.num_rate})</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
+    </View>
+    // </TouchableOpacity>
   );
 
   useEffect(() => {
@@ -262,111 +276,17 @@ const Home = () => {
   console.log("avaImg:", avaImg);
 
   return (
-    // <SafeAreaView style={styles.container}>
-    // <View style={styles.container}>
-    //   <ScrollView
-    //     style={styles.foodListsContainer}
-    //     showsVerticalScrollIndicator={false}
-    //   >
-    //     <View style={styles.screen}>
-    //       <View style={styles.carrouselContainer}>
-    //         <Image source={ShoesImage} style={styles.image} />
-    //       </View>
-    //       <Space height={20} />
-
-    //       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-    //         <View style={{ flexDirection: "row", paddingHorizontal: 18 }}>
-    //           <View
-    //             style={{
-    //               // paddingVertical: 0,
-    //               // paddingHorizontal: 20,
-    //               borderColor: "#cecece",
-    //               borderWidth: 1,
-    //               // backgroundColor: "red",
-
-    //               borderRadius: 6,
-    //             }}
-    //           >
-    //             <View style={{ paddingHorizontal: 12 }}>
-    //               <ListText
-    //                 text="Fashion"
-    //                 style={{ justifyContent: "center" }}
-    //               />
-    //             </View>
-    //           </View>
-    //           <Space width={20} />
-    //           <View
-    //             style={{
-    //               // paddingVertical: 0,
-    //               // paddingHorizontal: 20,
-    //               borderColor: "#cecece",
-    //               borderWidth: 1,
-    //               // backgroundColor: "red",
-
-    //               borderRadius: 6,
-    //             }}
-    //           >
-    //             <View style={{ paddingHorizontal: 12 }}>
-    //               <ListText text="Food" style={{ justifyContent: "center" }} />
-    //             </View>
-    //           </View>
-
-    //           <Space width={20} />
-    //           <View
-    //             style={{
-    //               // paddingVertical: 0,
-    //               // paddingHorizontal: 20,
-    //               borderColor: "#cecece",
-    //               borderWidth: 1,
-    //               // backgroundColor: "red",
-
-    //               borderRadius: 6,
-    //             }}
-    //           >
-    //             <View style={{ paddingHorizontal: 12 }}>
-    //               <ListText
-    //                 text="Accessories"
-    //                 style={{ justifyContent: "center" }}
-    //               />
-    //             </View>
-    //           </View>
-
-    //           <Space width={20} />
-    //           <View
-    //             style={{
-    //               // paddingVertical: 0,
-    //               // paddingHorizontal: 20,
-    //               borderColor: "#cecece",
-    //               borderWidth: 1,
-    //               // backgroundColor: "red",
-
-    //               borderRadius: 6,
-    //             }}
-    //           >
-    //             <View style={{ paddingHorizontal: 12 }}>
-    //               <ListText text="Blog" style={{ justifyContent: "center" }} />
-    //             </View>
-    //           </View>
-    //         </View>
-    //       </ScrollView>
-
-    //       <Space height={20} />
-
     <FlatList
       // data={formatData(data, numColumns)}
       data={data}
       // style={styles.containerFlatlist}
       renderItem={renderItem}
       numColumns={numColumns}
-      keyExtractor={(item) => item.product_key}
+      keyExtractor={(item) => item.product_id}
       ListHeaderComponent={FlatListHeaderHome}
       columnWrapperStyle={styles.containerFlatlist}
       showsVerticalScrollIndicator={false}
     />
-    //     {/* </View>
-    //   </ScrollView>
-    // </View> */}
-    // </SafeAreaView>
   );
 };
 
@@ -454,7 +374,6 @@ const styles = StyleSheet.create({
     flex: 1,
     // margin: 3,
     margin: 10,
-
     borderRadius: 10,
     borderColor: "#cecece",
     borderStyle: "solid",

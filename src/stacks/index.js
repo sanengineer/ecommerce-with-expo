@@ -10,6 +10,8 @@ import StartScreen from "./StartScreen";
 import Bio from "./Bio";
 import Shipping from "./Shipping";
 import Security from "./Security";
+import Category from "./Category";
+import Product from "./Product";
 
 export {
   LogIn,
@@ -24,4 +26,6 @@ export {
   Bio,
   Shipping,
   Security,
+  Category,
+  Product,
 };

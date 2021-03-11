@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingTop: 20,
   },
   screenContainer: {
     // paddingHorizontal: 20,

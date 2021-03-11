@@ -22,7 +22,6 @@ const Bio = ({ navigation }) => {
             <IconAngleLeftBig />
           </TouchableOpacity>
           <Text style={styles.textHeaderContainer}>Bio</Text>
-
           <View>
             <Space width={30} />
           </View>
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingTop: 20,
   },
   screenContainer: {
     // paddingHorizontal: 20,

@@ -14,6 +14,8 @@ import StarDisable from "./icon_start-disable.svg";
 import IconAngleLeftBig from "./icon_angle-left-big.svg";
 import IconMoreHorizontal from "./icon_more-horizontal.svg";
 import IconSecurity from "./icon_security.svg";
+import IconHeartEnable from "./icon_heart-enable";
+import IconHeartDisable from "./icon_heart-disable";
 
 export {
   IconHome,
@@ -32,4 +34,6 @@ export {
   IconAngleLeftBig,
   IconMoreHorizontal,
   IconSecurity,
+  IconHeartEnable,
+  IconHeartDisable,
 };
