@@ -14,13 +14,13 @@ import { IconAngleLeftBig, StarEnable } from "../../assets";
 import { Space } from "../../components";
 
 const Product = ({ navigation, route }) => {
+  const product = route.params;
+  // const navigation = useNavigation();
+
   //
   //debug
   console.log("navigation Category:", navigation);
   console.log("route Category:", route);
-
-  const product = route.params;
-
   console.log("route params", product);
   return (
     <SafeAreaView style={styles.safeContainer}>
@@ -117,7 +117,10 @@ const Product = ({ navigation, route }) => {
         </ScrollView>
         <View style={styles.navProductScreen}>
           <View style={styles.navProductScreenContainer}>
-            <TouchableOpacity style={styles.fastBuyContainerTouch}>
+            <TouchableOpacity
+              style={styles.fastBuyContainerTouch}
+              onPress={() => navigation.navigate("FastBuy")}
+            >
               <View style={styles.fastBuyContainer}>
                 <Text style={styles.fastBuy}>⚡ Fast Buy</Text>
               </View>

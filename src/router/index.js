@@ -16,6 +16,7 @@ import {
   Security,
   Category,
   Product,
+  FastBuy,
 } from "../stacks";
 import { BottomNav } from "../components";
 
@@ -151,13 +152,18 @@ const Router = () => {
       ))} */}
 
       <Stack.Screen
-        name={"Category"}
+        name="Category"
         component={Category}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name={"Product"}
+        name="Product"
         component={Product}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="FastBuy"
+        component={FastBuy}
         options={{ headerShown: false }}
       />
       <Stack.Screen

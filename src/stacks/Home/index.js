@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   StyleSheet,
   Text,
   View,
   Image,
   ScrollView,
-  SafeAreaView,
-  VirtualizedList,
   FlatList,
   Dimensions,
 } from "react-native";
 import {
-  ImageProfileDummy,
   ShoesImage,
   AvocadoFruit,
   StrawberryFruit,
@@ -19,14 +16,19 @@ import {
   PineappleFruit,
   DragonFruit,
   StarEnable,
-  StarDisable,
 } from "../../assets";
-import { FoodLists, ListText, Space } from "../../components";
+
+import {
+  ImageSlider,
+  ListText,
+  Space,
+  ImageSliderFlatList,
+} from "../../components";
 import { getData } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { whoAmiAction } from "../../redux/actions/whoAmiAction";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useScrollToTop } from "@react-navigation/native";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -139,13 +141,15 @@ const numColumns = 2;
 
 const Home = () => {
   // const user = getData("user");
-  const [token, setToken] = React.useState();
+  const [token, setToken] = useState();
+  const ref = useRef();
 
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const error = useSelector((state) => state.who_ami_reducer);
   const avaImg = useSelector((state) => state.who_ami_reducer.who_ami.avatar);
 
+  useScrollToTop(ref);
   // const [avatar, setAvatar] = useState();
 
   const getToken = async () => {
@@ -164,7 +168,9 @@ const Home = () => {
       >
         <View style={styles.screen}>
           <View style={styles.carrouselContainer}>
-            <Image source={ShoesImage} style={styles.image} />
+            {/* <Image source={ShoesImage} style={styles.image} /> */}
+            {/* <ImageSlider /> */}
+            <ImageSliderFlatList />
           </View>
           <Space height={20} />
 
@@ -277,6 +283,7 @@ const Home = () => {
 
   return (
     <FlatList
+      ref={ref}
       // data={formatData(data, numColumns)}
       data={data}
       // style={styles.containerFlatlist}

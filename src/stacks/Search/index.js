@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   StyleSheet,
   Text,
@@ -18,7 +18,7 @@ import {
   DragonFruit,
 } from "../../assets";
 import { ImageBackground } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useScrollToTop } from "@react-navigation/native";
 
 const data = [
   {
@@ -162,10 +162,13 @@ const QueryMap = ({ data }) => {
 };
 
 const Search = () => {
+  const navigation = useNavigation();
+  const ref = useRef();
+  useScrollToTop(ref);
+
   //
   //debug
   // console.log("navigation:", navigation);
-  const navigation = useNavigation();
 
   const ProductList = ({ item }) => (
     <>
@@ -203,6 +206,7 @@ const Search = () => {
           </View>
         </View>
         <FlatList
+          ref={ref}
           numColumns={numColumns}
           data={categories}
           ListHeaderComponent={FlatListHeaderHome}

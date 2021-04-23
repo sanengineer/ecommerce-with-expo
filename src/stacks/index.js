@@ -12,6 +12,7 @@ import Shipping from "./Shipping";
 import Security from "./Security";
 import Category from "./Category";
 import Product from "./Product";
+import FastBuy from "./FastBuy";
 
 export {
   LogIn,
@@ -28,4 +29,5 @@ export {
   Security,
   Category,
   Product,
+  FastBuy,
 };

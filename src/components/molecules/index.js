@@ -4,6 +4,7 @@ import FoodLists from "./FoodLists";
 import ListText from "./ListText";
 import ModalBottom from "./ModalBottom";
 import NavListTextLabel from "./NavListTextLabel";
+import { ImageSlider, ImageSliderFlatList } from "./ImageSlider";
 
 export {
   Header,
@@ -12,4 +13,6 @@ export {
   ListText,
   ModalBottom,
   NavListTextLabel,
+  ImageSlider,
+  ImageSliderFlatList,
 };

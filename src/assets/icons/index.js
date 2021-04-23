@@ -16,6 +16,9 @@ import IconMoreHorizontal from "./icon_more-horizontal.svg";
 import IconSecurity from "./icon_security.svg";
 import IconHeartEnable from "./icon_heart-enable";
 import IconHeartDisable from "./icon_heart-disable";
+import IconTrashGrey from "./icon_trash-grey.svg";
+import IconPlusCircle from "./icon_plus-circle.svg";
+import IconMinusCircle from "./icon_minus-circle.svg";
 
 export {
   IconHome,
@@ -36,4 +39,7 @@ export {
   IconSecurity,
   IconHeartEnable,
   IconHeartDisable,
+  IconTrashGrey,
+  IconPlusCircle,
+  IconMinusCircle,
 };
