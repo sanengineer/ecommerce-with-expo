@@ -14,13 +14,13 @@ export default Header;
 
 const styles = StyleSheet.compose({
   title: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "Circular-Bold",
     fontSize: 34,
     marginBottom: 10,
   },
 
   desc: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Circular-Medium",
     fontSize: 24,
     lineHeight: 35,
   },

@@ -24,7 +24,7 @@ const styles = StyleSheet.compose({
   },
 
   text: (color) => ({
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Book",
     fontSize: 16,
     color: color,
     textAlign: "center",

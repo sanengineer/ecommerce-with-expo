@@ -144,7 +144,7 @@ const QueryMap = ({ data }) => {
             <Text
               style={{
                 // backgroundColor: "cyan",
-                fontFamily: "Montserrat-SemiBold",
+                fontFamily: "CircularStd-Bold",
                 textAlign: "center",
               }}
             >
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     // backgroundColor: "red",
   },
   headerTitle: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
   },
   searchInputContainer: {
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     fontSize: 16,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Medium",
     // backgroundColor: "blue",
     color: "#000",
     padding: 6,
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
   },
   itemTitle: {
     // backgroundColor: "cyan",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
     textAlign: "left",
     textTransform: "capitalize",
   },

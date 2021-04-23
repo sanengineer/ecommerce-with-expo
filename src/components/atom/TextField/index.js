@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const TextField = ({
   textField,
-  fontFamily = "Montserrat-Regular",
+  fontFamily = "CircularStd-Book",
   fontSize = 14,
 }) => {
   return (
@@ -23,6 +23,6 @@ const styles = StyleSheet.compose({
   }),
 
   // text : {
-  //   fontFamily: "Montserrat-Regular"
+  //   fontFamily: "CircularStd-Medium"
   // }
 });

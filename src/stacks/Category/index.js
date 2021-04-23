@@ -130,7 +130,7 @@ const Category = ({ route }) => {
               paddingHorizontal: 20,
             }}
           >
-            <Text style={{ fontFamily: "Montserrat-Bold", fontSize: 12 }}>
+            <Text style={{ fontFamily: "CircularStd-Bold", fontSize: 12 }}>
               Add
             </Text>
           </View>
@@ -179,7 +179,7 @@ const Category = ({ route }) => {
                     fontSize: 13,
                     top: -10,
                     right: 0,
-                    fontFamily: "Montserrat-Bold",
+                    fontFamily: "CircularStd-Bold",
                     color: "#fff",
                     paddingHorizontal: 6,
                     paddingVertical: 2,
@@ -235,13 +235,13 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
     textTransform: "capitalize",
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
     textTransform: "capitalize",
   },
@@ -279,13 +279,13 @@ const styles = StyleSheet.create({
     paddingRight: 16,
   },
   itemTitle: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
   },
   itemDesc: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
   },
   itemPrice: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
   },
   ftImageContainer: {
     width: 90,

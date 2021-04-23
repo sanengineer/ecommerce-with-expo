@@ -9,19 +9,19 @@ const SuccessRegister = ({navigation}) => {
         <Text style={styles.emoji}>🎉</Text>
         <TextField
           textField="Register Success"
-          fontFamily="Montserrat-Bold"
+          fontFamily="CircularStd-Bold"
           fontSize={25}
         />
         <Space height={10} />
         <TextField
           textField="Let's Login And Grab Your Juices!"
-          fontFamily="Montserrat-Regular"
+          fontFamily="CircularStd-Medium"
           fontSize={15}
         />
         <Space height={50} />
         <Button
           txtDecorationLine="none"
-          fontFam="Montserrat-Bold"
+          fontFam="CircularStd-Bold"
           txtSize={16}
           label="Login"
           padSizeX={20}

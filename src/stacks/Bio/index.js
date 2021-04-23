@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
   },
   avatar: {

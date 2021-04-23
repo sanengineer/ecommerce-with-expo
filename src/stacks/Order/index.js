@@ -137,7 +137,7 @@ const Order = ({ navigation }) => {
                 paddingHorizontal: 8,
                 marginHorizontal: 6,
                 fontSize: 16,
-                fontFamily: "Montserrat-SemiBold",
+                fontFamily: "CircularStd-Bold",
               }}
             >
               2
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
     textTransform: "capitalize",
   },
@@ -243,14 +243,14 @@ const styles = StyleSheet.create({
     paddingRight: 16,
   },
   itemPrice: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
   },
   itemTitle: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
   },
   itemDesc: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
   },
   ftImageContainer: {
     width: 90,

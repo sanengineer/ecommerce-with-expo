@@ -46,7 +46,7 @@ const data = [
     price: 30000,
     stock: 20,
     image: AvocadoFruit,
-    num_rate: 10,
+    // num_rate: 10,
   },
   {
     product_id: 2,
@@ -55,7 +55,7 @@ const data = [
     price: 12000,
     stock: 10,
     image: StrawberryFruit,
-    num_rate: 30,
+    // num_rate: 30,
   },
   {
     product_id: 3,
@@ -64,7 +64,7 @@ const data = [
     price: 12000,
     stock: 40,
     image: PineappleFruit,
-    num_rate: 20,
+    // num_rate: 20,
   },
   {
     product_id: 4,
@@ -73,7 +73,7 @@ const data = [
     price: 12000,
     stock: 22,
     image: MangoFruit,
-    num_rate: 12,
+    // num_rate: 12,
   },
   {
     product_id: 5,
@@ -82,7 +82,7 @@ const data = [
     price: 12000,
     stock: 16,
     image: DragonFruit,
-    num_rate: 12,
+    // num_rate: 12,
   },
   {
     product_id: 6,
@@ -91,7 +91,7 @@ const data = [
     price: 12000,
     stock: 18,
     image: DragonFruit,
-    num_rate: 14,
+    // num_rate: 14,
   },
   {
     product_id: 7,
@@ -100,7 +100,16 @@ const data = [
     price: 12000,
     stock: 18,
     image: DragonFruit,
-    num_rate: 16,
+    // num_rate: 16,
+  },
+  {
+    product_id: 8,
+    name: "Palm Sugar Coffee Milk - 1L",
+    desc: "Espresso based with 80% milk and 20% espresso coffee",
+    price: 12000,
+    stock: 18,
+    image: DragonFruit,
+    // num_rate: 16,
   },
 ];
 
@@ -233,7 +242,7 @@ const Home = () => {
           <Text style={styles.itemText}>{item.name}</Text>
           <Space height={6} />
           <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
-          <View style={styles.itemRateContainer}>
+          {/* <View style={styles.itemRateContainer}>
             <View style={styles.itemStars}>
               <View style={styles.itemStar}>
                 <StarEnable />
@@ -253,7 +262,7 @@ const Home = () => {
             </View>
             <Space width={10} />
             <Text style={styles.itemNumRate}>({item.num_rate})</Text>
-          </View>
+          </View> */}
         </View>
       </TouchableOpacity>
     </View>
@@ -339,7 +348,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     fontSize: 26,
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     // width: 200,
     marginRight: 20,
   },
@@ -401,11 +410,11 @@ const styles = StyleSheet.create({
   // },
   itemText: {
     color: "#000",
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
   },
 
   itemTextPrice: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
   },
 
   itemImage: {
@@ -426,7 +435,7 @@ const styles = StyleSheet.create({
   },
 
   itemNumRate: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
     color: "#979797",
   },
 });

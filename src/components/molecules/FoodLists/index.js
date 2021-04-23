@@ -31,11 +31,11 @@ const styles = StyleSheet.compose({
     flex: 1,
   },
   titleItem: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 20,
   },
   titleDesc: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
     fontSize: 14,
   },
 });

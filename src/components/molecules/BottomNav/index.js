@@ -101,8 +101,8 @@ const BottomNav = ({ state, descriptors, navigation }) => {
                 style={{
                   color: "#000",
                   fontFamily: isFocused
-                    ? "Montserrat-Bold"
-                    : "Montserrat-Medium",
+                    ? "CircularStd-Bold"
+                    : "CircularStd-Medium",
                   fontSize: 10,
                 }}
               >
@@ -138,7 +138,7 @@ const styles = StyleSheet.compose({
   },
 
   label: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 10,
   },
 });

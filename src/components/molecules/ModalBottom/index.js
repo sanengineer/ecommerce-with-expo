@@ -49,7 +49,7 @@ const ModalBottom = ({
                   paddingVertical: 14,
                 }}
               >
-                <Text style={{ fontSize: 18, fontFamily: "Montserrat-Bold" }}>
+                <Text style={{ fontSize: 18, fontFamily: "CircularStd-Bold" }}>
                   Set {modalLog} as default address
                 </Text>
               </View>
@@ -71,7 +71,7 @@ const ModalBottom = ({
                 <Text
                   style={{
                     fontSize: 18,
-                    fontFamily: "Montserrat-Bold",
+                    fontFamily: "CircularStd-Bold",
                     color: "red",
                   }}
                 >

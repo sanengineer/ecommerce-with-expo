@@ -68,7 +68,7 @@ const Security = ({ navigation }) => {
               >
                 <Text
                   style={{
-                    fontFamily: "Montserrat-Bold",
+                    fontFamily: "CircularStd-Bold",
                     color: "green",
                     fontSize: 16,
                   }}
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
   },
   mainContianer: {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   titleMain: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 14,
   },
 });

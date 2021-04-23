@@ -84,7 +84,7 @@ const Register = ({ navigation }) => {
             <Button
               label="Register"
               txtDecorationLine="none"
-              fontFam="Montserrat-Bold"
+              fontFam="CircularStd-Bold"
               // onPress={() => navigation.replace("SuccessRegister")}
               onPress={() => onSubmit()}
             />
@@ -96,7 +96,7 @@ const Register = ({ navigation }) => {
               txtSize={12}
               bgColor="#fff"
               textColor="#000"
-              fontFam="Montserrat-Bold"
+              fontFam="CircularStd-Bold"
             />
           </View>
         </ScrollView>
@@ -121,7 +121,7 @@ const styles = StyleSheet.compose({
   },
   addAva: {
     fontSize: 16,
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     color: "#fff",
     textAlign: "center",
   },

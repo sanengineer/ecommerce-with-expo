@@ -59,7 +59,8 @@ const Profile = ({ navigation }) => {
               <View style={styles.listContainer}>
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
-                    <IconBio />
+                    {/* <IconBio /> */}
+                    <Text style={{fontSize: 26}}>🧬</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Bio" />
@@ -83,7 +84,8 @@ const Profile = ({ navigation }) => {
               <View style={styles.listContainer}>
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
-                    <IconShipping />
+                    {/* <IconShipping /> */}
+                    <Text style={{fontSize: 26}}>🚚</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Shipping" />
@@ -107,7 +109,8 @@ const Profile = ({ navigation }) => {
               <View style={styles.listContainer}>
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
-                    <IconSecurity />
+                    {/* <IconSecurity /> */}
+                    <Text style={{fontSize: 26}}>🔐</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Security" />
@@ -138,7 +141,7 @@ const Profile = ({ navigation }) => {
               >
                 <Text
                   style={{
-                    fontFamily: "Montserrat-Bold",
+                    fontFamily: "CircularStd-Bold",
                     color: "red",
                     fontSize: 16,
                   }}
@@ -215,11 +218,11 @@ const styles = StyleSheet.create({
     height: 100,
   },
   name: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 16,
   },
   email: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Medium",
     fontSize: 12,
   },
   avaContainer: {

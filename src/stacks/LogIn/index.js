@@ -73,7 +73,7 @@ const LogIn = ({ navigation }) => {
               <Space height={50} />
               <Button
                 label="Login"
-                fontFam="Montserrat-Bold"
+                fontFam="CircularStd-Bold"
                 txtDecorationLine="none"
                 // onPress={() => navigation.replace("SuccessLogin")}
                 onPress={() => onSubmit()}
@@ -86,7 +86,7 @@ const LogIn = ({ navigation }) => {
                 txtSize={12}
                 bgColor="#fff"
                 textColor="#000"
-                fontFam="Montserrat-Bold"
+                fontFam="CircularStd-Bold"
               />
             </View>
           </ScrollView>

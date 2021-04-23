@@ -23,12 +23,12 @@ export default TextInput;
 
 const styles = StyleSheet.compose({
   label: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 14,
     marginBottom: 10,
   },
   input: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
     fontSize: 14,
     color: "#000",
     padding: 10,

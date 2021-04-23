@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
   },
   mainContianer: {
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   titleMain: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 14,
   },
   itemAddressAndEditContainer: {
@@ -221,19 +221,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textTitle: {
-    fontFamily: "Montserrat-SemiBold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 16,
     textTransform: "capitalize",
   },
   textPlain: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Medium",
     fontSize: 14,
     textTransform: "capitalize",
   },
 
   statusDefaultAddress: {
     fontSize: 11,
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     color: "#038C00",
   },
   statusDefaultAddressContainer: {
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   changeAddressText: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     color: "#fff",
   },
 });

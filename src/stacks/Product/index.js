@@ -57,7 +57,7 @@ const Product = ({ navigation, route }) => {
                     fontSize: 13,
                     top: -10,
                     right: 0,
-                    fontFamily: "Montserrat-Bold",
+                    fontFamily: "CircularStd-Bold",
                     color: "#fff",
                     paddingHorizontal: 6,
                     paddingVertical: 2,
@@ -91,7 +91,7 @@ const Product = ({ navigation, route }) => {
               <Space height={8} />
               <Text style={styles.desc}>{product.desc}.</Text>
               <Space height={8} />
-              <View style={styles.itemRateContainer}>
+              {/* <View style={styles.itemRateContainer}>
                 <View style={styles.itemStars}>
                   <View style={styles.itemStar}>
                     <StarEnable />
@@ -111,7 +111,7 @@ const Product = ({ navigation, route }) => {
                 </View>
                 <Space width={10} />
                 <Text style={styles.itemNumRate}>({product.num_rate})</Text>
-              </View>
+              </View> */}
             </View>
           </View>
         </ScrollView>
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
   },
   textHeaderContainer: {
     // backgroundColor: "red",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 18,
     textTransform: "capitalize",
   },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     fontSize: 16,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
     // backgroundColor: "blue",
     color: "#000",
     padding: 6,
@@ -204,16 +204,16 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   title: {
-    fontSize: 14,
-    fontFamily: "Montserrat-SemiBold",
+    fontSize: 16,
+    fontFamily: "CircularStd-Bold",
   },
   desc: {
-    fontSize: 14,
-    fontFamily: "Montserrat-Regular",
+    fontSize: 16,
+    fontFamily: "CircularStd-Book",
   },
   price: {
-    fontSize: 18,
-    fontFamily: "Montserrat-Bold",
+    fontSize: 20,
+    fontFamily: "CircularStd-Black",
   },
   footerInfoProdContainer: {
     flexDirection: "row",
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   itemNumRate: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Medium",
     color: "#979797",
   },
   stockContainer: {
@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
   },
   stock: {
     fontSize: 12,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Medium",
   },
   navProductScreen: {
     position: "absolute",
@@ -270,21 +270,21 @@ const styles = StyleSheet.create({
     // backgroundColor: "cyan",
     justifyContent: "center",
     paddingHorizontal: 20,
-    borderRadius: 6,
-    backgroundColor: "#fff",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: "#000",
+    // borderRadius: 6,
+    // backgroundColor: "#fff",
+    // borderStyle: "solid",
+    // borderWidth: 1,
+    // borderColor: "#000",
   },
   addCartContainerTouch: {
     // backgroundColor: "cyan",
     justifyContent: "center",
     paddingHorizontal: 20,
-    borderRadius: 6,
-    backgroundColor: "#fff",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: "#000",
+    // borderRadius: 6,
+    // backgroundColor: "#fff",
+    // borderStyle: "solid",
+    // borderWidth: 1,
+    // borderColor: "#000",
   },
   fastBuyContainer: {
     // backgroundColor: "cyan",
@@ -293,10 +293,12 @@ const styles = StyleSheet.create({
     // backgroundColor: "red" ,
   },
   fastBuy: {
-    fontFamily: "Montserrat-Bold",
+    fontSize: 16,
+    fontFamily: "CircularStd-Book",
   },
   addCart: {
-    fontFamily: "Montserrat-Bold",
+    fontSize: 16,
+    fontFamily: "CircularStd-Book",
     color: "#000",
   },
 });

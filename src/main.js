@@ -14,14 +14,22 @@ import {
   Montserrat_400Regular,
   Montserrat_500Medium,
 } from "@expo-google-fonts/montserrat";
+
+import {
+  CircularStd_Black, CircularStd_Medium, CircularStd_Bold, CircularStd_Book
+} from "../src/assets"
 import { getData } from "./utils";
 
 function App(props) {
   let [loaded] = useFonts({
     "Montserrat-Regular": Montserrat_400Regular,
     "Montserrat-Medium": Montserrat_500Medium,
-    "Montserrat-SemiBold": Montserrat_600SemiBold,
+    "Montserrat-Bold": Montserrat_600SemiBold,
     "Montserrat-Bold": Montserrat_700Bold,
+    "CircularStd-Medium": CircularStd_Medium,
+    "CircularStd-Book": CircularStd_Book,
+    "CircularStd-Bold": CircularStd_Bold,
+    "CircularStd-Black": CircularStd_Black
   });
 
   const [data, setData] = useState();

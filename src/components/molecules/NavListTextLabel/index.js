@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 14,
   },
   content: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "CircularStd-Book",
     fontSize: 14,
     color: "#000",
     // backgroundColor: "red",
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   editText: {
     color: "green",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
   },
 
   listSubContainer: {
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   statusVerified: {
     fontSize: 10,
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "CircularStd-Bold",
     color: "#038C00",
   },
 });

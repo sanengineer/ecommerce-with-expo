@@ -9,19 +9,19 @@ const SuccessLogin = ({navigation}) => {
         <Text style={styles.emoji}>🎉</Text>
         <TextField
           textField="Login Success"
-          fontFamily="Montserrat-Bold"
+          fontFamily="CircularStd-Bold"
           fontSize={25}
         />
         <Space height={10} />
         <TextField
           textField="Grab Your Juices, Now!"
-          fontFamily="Montserrat-Regular"
+          fontFamily="CircularStd-Medium"
           fontSize={15}
         />
         <Space height={20} />
         <Button
           //   txtDecorationLine="none"
-          fontFam="Montserrat-Bold"
+          fontFam="CircularStd-Bold"
           txtSize={18}
           label="Let's Roll!"
           //   padSizeX={20}
