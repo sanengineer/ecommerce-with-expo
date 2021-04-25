@@ -7,22 +7,16 @@ import { SafeAreaView } from "react-native";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
 
-import { useFonts } from "@expo-google-fonts/montserrat";
-
 import {
   CircularStd_Black,
   CircularStd_Medium,
   CircularStd_Bold,
   CircularStd_Book,
 } from "../src/assets";
-import { getData } from "./utils";
+import { getData, useCustomFonts } from "./utils";
 
 function App(props) {
-  let [loaded] = useFonts({
-    "Montserrat-Regular": Montserrat_400Regular,
-    "Montserrat-Medium": Montserrat_500Medium,
-    "Montserrat-Bold": Montserrat_600SemiBold,
-    "Montserrat-Bold": Montserrat_700Bold,
+  let [loaded] = useCustomFonts({
     "CircularStd-Medium": CircularStd_Medium,
     "CircularStd-Book": CircularStd_Book,
     "CircularStd-Bold": CircularStd_Bold,

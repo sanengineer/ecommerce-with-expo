@@ -51,7 +51,7 @@ const BottomNav = ({ state, descriptors, navigation }) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: "#fff" }}>
       <View style={styles.nav}>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];

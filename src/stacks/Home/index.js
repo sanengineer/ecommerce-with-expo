@@ -165,9 +165,9 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.screen}>
-          <View style={styles.carrouselContainer}>
+          {/* <View style={styles.carrouselContainer}>
             <ImageSliderFlatList />
-          </View>
+          </View> */}
           <Space height={20} />
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -219,7 +219,7 @@ const Home = () => {
         <Image source={item.image} style={styles.itemImage} />
         <View style={styles.item}>
           <Text style={styles.itemText}>{item.name}</Text>
-          <Space height={6} />
+          <Space height={12} />
           <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
         </View>
       </TouchableOpacity>
@@ -238,6 +238,7 @@ const Home = () => {
   console.log("token_home:", token);
   // console.log("avatar:", avatar);
   console.log("avaImg:", avaImg);
+  console.log("dimension:", styles.image);
 
   return (
     <FlatList
@@ -300,12 +301,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
-  image: {
-    flex: 1,
-    justifyContent: "center",
-    resizeMode: "cover",
-    height: 280,
-  },
+  // image: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   resizeMode: "cover",
+  //   height: 380,
+  // },
 
   foodListsContainer: {
     // marginBottom: 100,
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
 
   itemImage: {
     height: 120,
-    width: Dimensions.get("window").height / numColumns,
+    width: Dimensions.get("window").width / numColumns,
   },
   itemRateContainer: {
     flexDirection: "row",

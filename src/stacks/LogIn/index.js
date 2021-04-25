@@ -50,7 +50,10 @@ const LogIn = ({ navigation }) => {
           behavior={Platform.OS == "ios" ? "padding" : "height"}
         >
           <Space height={20} />
-          <Header title="Login" desc="For buying healty juice, login first." />
+          <Header
+            title="Login"
+            desc="For buying drinks and beverages, login first."
+          />
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}

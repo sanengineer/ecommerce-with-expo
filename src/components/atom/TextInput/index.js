@@ -12,6 +12,7 @@ const TextInput = ({ label, placeholder, ...props }) => {
       <Text style={styles.label}>{label}</Text>
       <TextInputReact
         style={styles.input}
+        autoCapitalize={false}
         placeholder={placeholder}
         {...props}
       />

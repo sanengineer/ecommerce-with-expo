@@ -37,3 +37,6 @@ web-build/
 /.pnp
 .pnp.js
 # @end @expo/next-adapter
+
+# Environment Variable
+.env

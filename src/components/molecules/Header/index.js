@@ -14,13 +14,13 @@ export default Header;
 
 const styles = StyleSheet.compose({
   title: {
-    fontFamily: "Circular-Bold",
+    fontFamily: "CircularStd-Bold",
     fontSize: 34,
     marginBottom: 10,
   },
 
   desc: {
-    fontFamily: "Circular-Medium",
+    fontFamily: "CircularStd-Book",
     fontSize: 24,
     lineHeight: 35,
   },
