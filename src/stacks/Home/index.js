@@ -7,6 +7,7 @@ import {
   ScrollView,
   FlatList,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import {
   ShoesImage,
@@ -17,6 +18,7 @@ import {
   DragonFruit,
   StarEnable,
   CoffeeCup,
+  ImageHeaderBg,
 } from "../../assets";
 
 import {
@@ -30,6 +32,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { whoAmiAction } from "../../redux/actions/whoAmiAction";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
+import { SafeAreaView } from "react-native";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -168,15 +171,100 @@ const Home = () => {
           {/* <View style={styles.carrouselContainer}>
             <ImageSliderFlatList />
           </View> */}
-          <Space height={20} />
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <ImageBackground
+            style={styles.headerContainer}
+            source={ImageHeaderBg}
+          >
+            <View style={styles.titleHeaderContainer}>
+              <View style={styles.iconTitleUserContainer}>
+                <Text style={styles.iconTitle}>👋</Text>
+                <Text style={styles.textTitle}>Hai, San!</Text>
+              </View>
+
+              <Text
+                style={{
+                  fontFamily: "CircularStd-Book",
+                  fontSize: 18,
+                  // backgroundColor: "red",
+                  textAlign: "center",
+                }}
+              >
+                Ayo pesan lagi !
+              </Text>
+            </View>
+            <Space height={10} />
+
+            <View
+              style={{
+                // backgroundColor: "red",
+
+                top: -Dimensions.get("screen").height / 5,
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  opacity: 0.6,
+                }}
+                // onPress={() => navigation.navigate("Category", item)}
+              >
+                <View
+                  style={{
+                    width: 170,
+                    backgroundColor: "green",
+                    borderRadius: 100,
+                  }}
+                >
+                  <ListText
+                    paddingX={0}
+                    paddingY={4}
+                    text={"💰 Point Kamu"}
+                    size={10}
+                    color={"#fff"}
+                    style={{ justifyContent: "center" }}
+                  />
+                </View>
+              </TouchableOpacity>
+              {/* <Space height={7} /> */}
+              <Text
+                style={{
+                  fontSize: 60,
+                  textAlign: "center",
+                  fontFamily: "CircularStd-Medium",
+                }}
+              >
+                2000
+              </Text>
+            </View>
+
+            <View
+              style={{
+                backgroundColor: "#fff",
+                height: Dimensions.get("screen").height / 5,
+                position: "absolute",
+                width: Dimensions.get("screen").width - 36,
+                top: Dimensions.get("screen").height / 2.6,
+                borderRadius: 10,
+                borderWidth: 1,
+                borderColor: "#efefef",
+                marginHorizontal: 18,
+                zIndex: 4,
+              }}
+            ></View>
+          </ImageBackground>
+          <Space height={Dimensions.get("screen").height / 40} />
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ marginTop: Dimensions.get("screen").height / 10 }}
+          >
             <View style={{ flexDirection: "row", paddingHorizontal: 18 }}>
               {categories.map((item) => (
                 <>
                   <View
                     style={{
-                      borderColor: "#cecece",
+                      borderColor: "#efefef",
                       borderWidth: 1,
                       // backgroundColor: "red",
                       borderRadius: 6,
@@ -241,18 +329,20 @@ const Home = () => {
   console.log("dimension:", styles.image);
 
   return (
-    <FlatList
-      ref={ref}
-      // data={formatData(data, numColumns)}
-      data={data}
-      // style={styles.containerFlatlist}
-      renderItem={renderItem}
-      numColumns={numColumns}
-      keyExtractor={(item, index) => item.product_id}
-      ListHeaderComponent={FlatListHeaderHome}
-      columnWrapperStyle={styles.containerFlatlist}
-      showsVerticalScrollIndicator={false}
-    />
+    <View style={{ backgroundColor: "green" }}>
+      <FlatList
+        ref={ref}
+        // data={formatData(data, numColumns)}
+        data={data}
+        // style={styles.containerFlatlist}
+        renderItem={renderItem}
+        numColumns={numColumns}
+        keyExtractor={(item, index) => item.product_id}
+        ListHeaderComponent={FlatListHeaderHome}
+        columnWrapperStyle={styles.containerFlatlist}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
   );
 };
 
@@ -261,6 +351,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
   },
   screen: {
     flex: 1,
@@ -270,7 +361,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
-    // backgroundColor: "aqua",
+    backgroundColor: "aqua",
     alignItems: "center",
     padding: 10,
   },
@@ -278,12 +369,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     flex: 1,
     flexWrap: "wrap",
-    // backgroundColor: "cyan",
+    // backgroundColor: "#fff",
   },
   containerList: {
     // flex: 1,
     flexDirection: "column",
-    // backgroundColor: "yellow",
+    backgroundColor: "yellow",
   },
   subContainerList: {
     alignContent: "stretch",
@@ -301,6 +392,34 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
 
+  headerContainer: {
+    flex: 1,
+    alignItems: "center",
+    height: Dimensions.get("screen").height / 2,
+    backgroundColor: "#17F147",
+    position: "relative",
+    resizeMode: "cover",
+  },
+
+  titleHeaderContainer: {
+    position: "relative",
+    justifyContent: "center",
+    top: -Dimensions.get("screen").height / 13,
+    flex: 1,
+    // flexDirection: "column",
+    // backgroundColor: "red",
+  },
+
+  iconTitleUserContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "baseline",
+  },
+  iconTitle: {
+    fontSize: 36,
+  },
+  textTitle: { fontSize: 32, fontFamily: "CircularStd-Bold" },
+
   // image: {
   //   flex: 1,
   //   justifyContent: "center",
@@ -309,7 +428,7 @@ const styles = StyleSheet.create({
   // },
 
   foodListsContainer: {
-    // marginBottom: 100,
+    // backgroundColor: "red",
   },
 
   //
@@ -317,8 +436,8 @@ const styles = StyleSheet.create({
   containerFlatlist: {
     flex: 1,
     marginVertical: 0,
-    marginHorizontal: 8,
-    // backgroundColor: "cyan",
+    paddingHorizontal: 8,
+    backgroundColor: "#fff",
   },
 
   itemContainer: {
@@ -327,7 +446,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     borderRadius: 10,
-    borderColor: "#cecece",
+    borderColor: "#efefef",
     borderStyle: "solid",
     borderWidth: 1,
   },

@@ -1,10 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const ListText = ({ text, color = "black" }) => {
+const ListText = ({
+  text,
+  color = "black",
+  size = 16,
+  paddingX = 10,
+  paddingY = 6,
+}) => {
   return (
-    <View style={styles.listTextContainer}>
-      <Text style={styles.text(color)}>{text}</Text>
+    <View style={styles.listTextContainer(paddingX, paddingY)}>
+      <Text style={styles.text(color, size)}>{text}</Text>
     </View>
   );
 };
@@ -12,20 +18,20 @@ const ListText = ({ text, color = "black" }) => {
 export default ListText;
 
 const styles = StyleSheet.compose({
-  listTextContainer: {
-    paddingVertical: 10,
-    paddingHorizontal: 8,
+  listTextContainer: (paddingX, paddingY) => ({
+    paddingVertical: paddingY,
+    paddingHorizontal: paddingX,
     // borderColor: "#cecece",
     // borderWidth: 1,
     // borderStyle: "solid",
 
     justifyContent: "center",
     // backgroundColor: "red",
-  },
+  }),
 
-  text: (color) => ({
+  text: (color, size) => ({
     fontFamily: "CircularStd-Book",
-    fontSize: 16,
+    fontSize: size,
     color: color,
     textAlign: "center",
   }),
