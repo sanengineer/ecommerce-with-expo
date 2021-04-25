@@ -7,17 +7,14 @@ import { SafeAreaView } from "react-native";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
 
-import {
-  useFonts,
-  Montserrat_700Bold,
-  Montserrat_600SemiBold,
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-} from "@expo-google-fonts/montserrat";
+import { useFonts } from "@expo-google-fonts/montserrat";
 
 import {
-  CircularStd_Black, CircularStd_Medium, CircularStd_Bold, CircularStd_Book
-} from "../src/assets"
+  CircularStd_Black,
+  CircularStd_Medium,
+  CircularStd_Bold,
+  CircularStd_Book,
+} from "../src/assets";
 import { getData } from "./utils";
 
 function App(props) {
@@ -29,7 +26,7 @@ function App(props) {
     "CircularStd-Medium": CircularStd_Medium,
     "CircularStd-Book": CircularStd_Book,
     "CircularStd-Bold": CircularStd_Bold,
-    "CircularStd-Black": CircularStd_Black
+    "CircularStd-Black": CircularStd_Black,
   });
 
   const [data, setData] = useState();

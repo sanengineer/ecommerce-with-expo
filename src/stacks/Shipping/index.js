@@ -174,7 +174,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   screenContainer: {
-    // paddingHorizontal: 20,
     paddingVertical: 18,
   },
   headerContainer: {

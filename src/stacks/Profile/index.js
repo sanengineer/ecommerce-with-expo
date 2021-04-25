@@ -60,7 +60,7 @@ const Profile = ({ navigation }) => {
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
                     {/* <IconBio /> */}
-                    <Text style={{fontSize: 26}}>🧬</Text>
+                    <Text style={{ fontSize: 26 }}>🧬</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Bio" />
@@ -85,7 +85,7 @@ const Profile = ({ navigation }) => {
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
                     {/* <IconShipping /> */}
-                    <Text style={{fontSize: 26}}>🚚</Text>
+                    <Text style={{ fontSize: 26 }}>🚚</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Shipping" />
@@ -110,7 +110,7 @@ const Profile = ({ navigation }) => {
                 <View style={styles.listIconNameContainer}>
                   <IconContainer>
                     {/* <IconSecurity /> */}
-                    <Text style={{fontSize: 26}}>🔐</Text>
+                    <Text style={{ fontSize: 26 }}>🔐</Text>
                   </IconContainer>
                   <Space width={10} />
                   <ListText text="Security" />
@@ -134,8 +134,6 @@ const Profile = ({ navigation }) => {
                 style={{
                   alignItems: "center",
                   // backgroundColor: "cyan",
-                  // width: 120,
-                  // height: 100,
                   padding: 20,
                 }}
               >
@@ -151,30 +149,7 @@ const Profile = ({ navigation }) => {
               </View>
             </TouchableOpacity>
           </View>
-
-          {/* <View
-            style={{
-              // paddingVertical: 0,
-              // paddingHorizontal: 20,
-              borderColor: "#cecece",
-              borderWidth: 1,
-              // backgroundColor: "red",
-
-              borderRadius: 6,
-            }}
-          >
-            <View style={{ paddingHorizontal: 12 }}>
-              <ListText
-                text="Logout"
-                color="red"
-                style={{ justifyContent: "center" }}
-              />
-            </View>
-          </View> */}
         </View>
-        {/* <Space height={40} /> */}
-
-        {/* </ScrollView> */}
       </View>
     </SafeAreaView>
   );
@@ -189,19 +164,13 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   page: {
-    // paddingHorizontal: 18,
     paddingTop: 30,
     paddingBottom: 10,
-    // paddingVertical: 20,
     flex: 1,
-    // flexDirection: "column",
-    // height: 500,
     // backgroundColor: "red",
   },
   avaNameEmailContainer: {
-    // flex: 1,
     flexDirection: "column",
-    // justifyContent: "center",
     alignContent: "center",
     // backgroundColor: "cyan",
   },
@@ -209,7 +178,6 @@ const styles = StyleSheet.create({
     flex: 2,
     // backgroundColor: "cyan",
     flexDirection: "column",
-
     justifyContent: "space-between",
   },
   avatar: {

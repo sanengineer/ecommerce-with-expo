@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
   ftImageContainer: {
     width: 90,
     borderRadius: 10,
-    // overflow: "hidden",
   },
 
   ftImage: {

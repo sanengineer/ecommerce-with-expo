@@ -1,8 +1,8 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {TextField, Space, Button} from '../../components';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { TextField, Space, Button } from "../../components";
 
-const SuccessLogin = ({navigation}) => {
+const SuccessLogin = ({ navigation }) => {
   return (
     <View style={styles.page}>
       <View style={styles.container}>
@@ -20,15 +20,12 @@ const SuccessLogin = ({navigation}) => {
         />
         <Space height={20} />
         <Button
-          //   txtDecorationLine="none"
           fontFam="CircularStd-Bold"
           txtSize={18}
           label="Let's Roll!"
-          //   padSizeX={20}
-          //   padSizeY={60}
           bgColor="transparent"
           textColor="#000"
-          onPress={() => navigation.replace('MainApp')}
+          onPress={() => navigation.replace("MainApp")}
         />
       </View>
     </View>
@@ -45,12 +42,12 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   emoji: {
     fontSize: 140,
-    textAlign: 'center',
+    textAlign: "center",
     paddingBottom: 50,
   },
 });

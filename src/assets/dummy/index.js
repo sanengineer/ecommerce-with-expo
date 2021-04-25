@@ -5,6 +5,7 @@ import StrawberryFruit from "./strawberries-fruit.jpeg";
 import MangoFruit from "./mango-fruit.jpeg";
 import PineappleFruit from "./pineapple-fruit.jpeg";
 import DragonFruit from "./dragon-fruit.jpeg";
+import CoffeeCup from "./coffee-cup-by-pixzolo-small.jpeg";
 
 export {
   ImageProfileDummy,
@@ -14,4 +15,5 @@ export {
   MangoFruit,
   PineappleFruit,
   DragonFruit,
+  CoffeeCup,
 };

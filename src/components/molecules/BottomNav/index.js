@@ -15,6 +15,14 @@ import {
   IconProfileActive,
   IconSearch,
   IconSearchActive,
+  IconHomeRounded,
+  IconHomeRoundedActive,
+  IconSearchRounded,
+  IconSearchRoundedActive,
+  IconCartRounded,
+  IconCartRoundedActive,
+  IconProfileRounded,
+  IconProfileRoundedActive,
 } from "../../../assets";
 
 const Icon = ({ label, focus }) => {
@@ -23,15 +31,15 @@ const Icon = ({ label, focus }) => {
   console.log("label:", label);
   switch (label) {
     case "Home":
-      return focus ? <IconHomeActive /> : <IconHome />;
+      return focus ? <IconHomeRoundedActive /> : <IconHomeRounded />;
     case "Search":
-      return focus ? <IconSearchActive /> : <IconSearch />;
+      return focus ? <IconSearchRoundedActive /> : <IconSearchRounded />;
     case "Order":
-      return focus ? <IconOrderActive /> : <IconOrder />;
+      return focus ? <IconCartRoundedActive /> : <IconCartRounded />;
     case "Profile":
-      return focus ? <IconProfileActive /> : <IconProfile />;
+      return focus ? <IconProfileRoundedActive /> : <IconProfileRounded />;
     default:
-      return <IconHome />;
+      return <IconHomeRounded />;
   }
 };
 
@@ -102,7 +110,7 @@ const BottomNav = ({ state, descriptors, navigation }) => {
                   color: "#000",
                   fontFamily: isFocused
                     ? "CircularStd-Bold"
-                    : "CircularStd-Medium",
+                    : "CircularStd-Book",
                   fontSize: 10,
                 }}
               >
@@ -138,7 +146,7 @@ const styles = StyleSheet.compose({
   },
 
   label: {
-    fontFamily: "CircularStd-Bold",
+    fontFamily: "CircularStd-Book",
     fontSize: 10,
   },
 });

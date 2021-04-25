@@ -16,6 +16,7 @@ import {
   PineappleFruit,
   DragonFruit,
   StarEnable,
+  CoffeeCup,
 } from "../../assets";
 
 import {
@@ -45,7 +46,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 30000,
     stock: 20,
-    image: AvocadoFruit,
+    image: CoffeeCup,
     // num_rate: 10,
   },
   {
@@ -54,7 +55,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 10,
-    image: StrawberryFruit,
+    image: CoffeeCup,
     // num_rate: 30,
   },
   {
@@ -63,7 +64,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 40,
-    image: PineappleFruit,
+    image: CoffeeCup,
     // num_rate: 20,
   },
   {
@@ -72,7 +73,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 22,
-    image: MangoFruit,
+    image: CoffeeCup,
     // num_rate: 12,
   },
   {
@@ -81,7 +82,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 16,
-    image: DragonFruit,
+    image: CoffeeCup,
     // num_rate: 12,
   },
   {
@@ -90,7 +91,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 18,
-    image: DragonFruit,
+    image: CoffeeCup,
     // num_rate: 14,
   },
   {
@@ -99,7 +100,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 18,
-    image: DragonFruit,
+    image: CoffeeCup,
     // num_rate: 16,
   },
   {
@@ -108,7 +109,7 @@ const data = [
     desc: "Espresso based with 80% milk and 20% espresso coffee",
     price: 12000,
     stock: 18,
-    image: DragonFruit,
+    image: CoffeeCup,
     // num_rate: 16,
   },
 ];
@@ -116,40 +117,29 @@ const data = [
 const categories = [
   {
     category_id: 1,
-    category_name: "Fashion Tops",
+    category_name: "☕️  Coffee",
     featured_image: ShoesImage,
   },
   {
     category_id: 2,
-    category_name: "Fashion Bottoms",
+    category_name: "🥃  Tea",
     featured_image: AvocadoFruit,
   },
   {
     category_id: 3,
-    category_name: "Fashion Outter",
+    category_name: "🍵  Matcha",
     featured_image: StrawberryFruit,
   },
   {
     category_id: 4,
-    category_name: "Shoes",
+    category_name: "🥐  Pastry",
     featured_image: MangoFruit,
-  },
-  {
-    category_id: 5,
-    category_name: "Accessoris",
-    featured_image: PineappleFruit,
-  },
-  {
-    category_id: 6,
-    category_name: "Beverage",
-    featured_image: DragonFruit,
   },
 ];
 
 const numColumns = 2;
 
 const Home = () => {
-  // const user = getData("user");
   const [token, setToken] = useState();
   const ref = useRef();
 
@@ -159,7 +149,6 @@ const Home = () => {
   const avaImg = useSelector((state) => state.who_ami_reducer.who_ami.avatar);
 
   useScrollToTop(ref);
-  // const [avatar, setAvatar] = useState();
 
   const getToken = async () => {
     await getData("user").then((user) => {
@@ -177,8 +166,6 @@ const Home = () => {
       >
         <View style={styles.screen}>
           <View style={styles.carrouselContainer}>
-            {/* <Image source={ShoesImage} style={styles.image} /> */}
-            {/* <ImageSlider /> */}
             <ImageSliderFlatList />
           </View>
           <Space height={20} />
@@ -189,14 +176,11 @@ const Home = () => {
                 <>
                   <View
                     style={{
-                      // paddingVertical: 0,
-                      // paddingHorizontal: 20,
                       borderColor: "#cecece",
                       borderWidth: 1,
                       // backgroundColor: "red",
                       borderRadius: 6,
                     }}
-                    key={item.category_id}
                   >
                     <TouchableOpacity
                       style={{
@@ -208,7 +192,7 @@ const Home = () => {
                       <View style={{ paddingHorizontal: 12 }}>
                         <ListText
                           text={`${item.category_name}`}
-                          style={{ justifyContent: "center" }}
+                          style={{ justifyContent: "center", fontSize: 16 }}
                         />
                       </View>
                     </TouchableOpacity>
@@ -227,11 +211,6 @@ const Home = () => {
   );
 
   const renderItem = ({ item }) => (
-    // if (item.empty === true) {
-    //   return <View style={[styles.item, styles.itemInvisible]} />;
-    // }
-    // return (
-    // <TouchableOpacity key={item.product_id}>
     <View style={styles.itemContainer}>
       <TouchableOpacity
         activeOpacity={0.7}
@@ -242,42 +221,12 @@ const Home = () => {
           <Text style={styles.itemText}>{item.name}</Text>
           <Space height={6} />
           <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
-          {/* <View style={styles.itemRateContainer}>
-            <View style={styles.itemStars}>
-              <View style={styles.itemStar}>
-                <StarEnable />
-              </View>
-              <View style={styles.itemStar}>
-                <StarEnable />
-              </View>
-              <View style={styles.itemStar}>
-                <StarEnable />
-              </View>
-              <View style={styles.itemStar}>
-                <StarEnable />
-              </View>
-              <View style={styles.itemStar}>
-                <StarEnable />
-              </View>
-            </View>
-            <Space width={10} />
-            <Text style={styles.itemNumRate}>({item.num_rate})</Text>
-          </View> */}
         </View>
       </TouchableOpacity>
     </View>
-    // </TouchableOpacity>
   );
 
   useEffect(() => {
-    // user
-    //   .then((res) => {
-    //     setToken(res.accessToken.accessToken);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    // });
-    // token();
     getToken();
   }, []);
 
@@ -298,7 +247,7 @@ const Home = () => {
       // style={styles.containerFlatlist}
       renderItem={renderItem}
       numColumns={numColumns}
-      keyExtractor={(item) => item.product_id}
+      keyExtractor={(item, index) => item.product_id}
       ListHeaderComponent={FlatListHeaderHome}
       columnWrapperStyle={styles.containerFlatlist}
       showsVerticalScrollIndicator={false}
@@ -328,7 +277,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     flex: 1,
     flexWrap: "wrap",
-    // flexDirection: "row",
     // backgroundColor: "cyan",
   },
   containerList: {
@@ -339,24 +287,16 @@ const styles = StyleSheet.create({
   subContainerList: {
     alignContent: "stretch",
     // backgroundColor: "red",
-    // flex: 1,
-    // flexDirection: "column",
-    // minWidth: 100,
-    // width: 120,
     padding: 6,
   },
 
   homeHeader: {
     fontSize: 26,
     fontFamily: "CircularStd-Bold",
-    // width: 200,
     marginRight: 20,
   },
 
   carrouselContainer: {
-    // minHeight: 200,
-    // height: 250,
-    // flex: 1,
     flexDirection: "row",
   },
 
@@ -376,26 +316,19 @@ const styles = StyleSheet.create({
   containerFlatlist: {
     flex: 1,
     marginVertical: 0,
-    // paddingHorizontal: 10,
     marginHorizontal: 8,
-    // padding: 20,
     // backgroundColor: "cyan",
   },
 
   itemContainer: {
     // backgroundColor: "grey",
-    // alignItems: "center",
-    // justifyContent: "center",
     overflow: "hidden",
     flex: 1,
-    // margin: 3,
     margin: 10,
     borderRadius: 10,
     borderColor: "#cecece",
     borderStyle: "solid",
     borderWidth: 1,
-    //height: Dimensions.get("window").width / numColumns, // approximate a square
-    //height: 380 / numColumns, // approximate a square
   },
 
   item: {
@@ -403,18 +336,17 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     // backgroundColor: "red",
-    //height: Dimensions.get("window").width / numColumns
   },
-  // itemInvisible: {
-  //   backgroundColor: "transparent",
-  // },
   itemText: {
     color: "#000",
-    fontFamily: "CircularStd-Bold",
+    fontSize: 16,
+    fontFamily: "CircularStd-Book",
+    lineHeight: 20,
   },
 
   itemTextPrice: {
-    fontFamily: "CircularStd-Book",
+    fontSize: 16,
+    fontFamily: "CircularStd-Bold",
   },
 
   itemImage: {

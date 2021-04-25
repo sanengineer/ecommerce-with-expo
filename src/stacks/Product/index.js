@@ -15,7 +15,6 @@ import { Space } from "../../components";
 
 const Product = ({ navigation, route }) => {
   const product = route.params;
-  // const navigation = useNavigation();
 
   //
   //debug
@@ -91,27 +90,6 @@ const Product = ({ navigation, route }) => {
               <Space height={8} />
               <Text style={styles.desc}>{product.desc}.</Text>
               <Space height={8} />
-              {/* <View style={styles.itemRateContainer}>
-                <View style={styles.itemStars}>
-                  <View style={styles.itemStar}>
-                    <StarEnable />
-                  </View>
-                  <View style={styles.itemStar}>
-                    <StarEnable />
-                  </View>
-                  <View style={styles.itemStar}>
-                    <StarEnable />
-                  </View>
-                  <View style={styles.itemStar}>
-                    <StarEnable />
-                  </View>
-                  <View style={styles.itemStar}>
-                    <StarEnable />
-                  </View>
-                </View>
-                <Space width={10} />
-                <Text style={styles.itemNumRate}>({product.num_rate})</Text>
-              </View> */}
             </View>
           </View>
         </ScrollView>
@@ -135,14 +113,6 @@ const Product = ({ navigation, route }) => {
       </View>
     </SafeAreaView>
   );
-
-  // return (
-  //   <SafeAreaView style={styles.safeContainer}>
-  //     <View style={styles.screenContainer}>
-  //       <Text>Product Page</Text>
-  //     </View>
-  //   </SafeAreaView>
-  // );
 };
 
 export default Product;
@@ -154,7 +124,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   screenContainer: {
-    // paddingHorizontal: 20,
     paddingTop: 18,
     flex: 1,
     // backgroundColor: "red",
@@ -270,21 +239,11 @@ const styles = StyleSheet.create({
     // backgroundColor: "cyan",
     justifyContent: "center",
     paddingHorizontal: 20,
-    // borderRadius: 6,
-    // backgroundColor: "#fff",
-    // borderStyle: "solid",
-    // borderWidth: 1,
-    // borderColor: "#000",
   },
   addCartContainerTouch: {
     // backgroundColor: "cyan",
     justifyContent: "center",
     paddingHorizontal: 20,
-    // borderRadius: 6,
-    // backgroundColor: "#fff",
-    // borderStyle: "solid",
-    // borderWidth: 1,
-    // borderColor: "#000",
   },
   fastBuyContainer: {
     // backgroundColor: "cyan",
