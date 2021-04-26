@@ -33,6 +33,7 @@ import { whoAmiAction } from "../../redux/actions/whoAmiAction";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation, useScrollToTop } from "@react-navigation/native";
 import { SafeAreaView } from "react-native";
+import { Touchable } from "react-native";
 
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -176,81 +177,39 @@ const Home = () => {
             style={styles.headerContainer}
             source={ImageHeaderBg}
           >
-            <View style={styles.titleHeaderContainer}>
-              <View style={styles.iconTitleUserContainer}>
-                <Text style={styles.iconTitle}>👋</Text>
-                <Text style={styles.textTitle}>Hai, San!</Text>
-              </View>
-
-              <Text
-                style={{
-                  fontFamily: "CircularStd-Book",
-                  fontSize: 18,
-                  // backgroundColor: "red",
-                  textAlign: "center",
-                }}
-              >
-                Ayo pesan lagi !
-              </Text>
+            <View style={{ position: "absolute", right: 20, top: 40 }}>
+              <TouchableOpacity activeOpacity={0.7}>
+                <Text style={{ fontSize: 20 }}>🔔</Text>
+              </TouchableOpacity>
             </View>
-            <Space height={10} />
-
-            <View
-              style={{
-                // backgroundColor: "red",
-
-                top: -Dimensions.get("screen").height / 5,
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  opacity: 0.6,
-                }}
+            <View style={styles.contentHeader}>
+              <View style={styles.titleHeaderContainer}>
+                <View style={styles.iconTitleUserContainer}>
+                  <Text style={styles.iconTitle}>👋</Text>
+                  <Text style={styles.textTitle}>Hai, San!</Text>
+                </View>
+              </View>
+              <View style={styles.subTitleContainer}>
+                <Text style={styles.subTitle}>Ayo pesan lagi !</Text>
+              </View>
+              <View style={styles.pointTitleContainer}>
+                <TouchableOpacity
                 // onPress={() => navigation.navigate("Category", item)}
-              >
-                <View
-                  style={{
-                    width: 170,
-                    backgroundColor: "green",
-                    borderRadius: 100,
-                  }}
                 >
                   <ListText
-                    paddingX={0}
+                    paddingX={10}
                     paddingY={4}
                     text={"💰 Point Kamu"}
                     size={10}
                     color={"#fff"}
-                    style={{ justifyContent: "center" }}
                   />
-                </View>
-              </TouchableOpacity>
-              {/* <Space height={7} /> */}
-              <Text
-                style={{
-                  fontSize: 60,
-                  textAlign: "center",
-                  fontFamily: "CircularStd-Medium",
-                }}
-              >
-                2000
-              </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.pointContainer}>
+                <Text style={styles.textPoint}>2000</Text>
+              </View>
             </View>
-
-            <View
-              style={{
-                backgroundColor: "#fff",
-                height: Dimensions.get("screen").height / 5,
-                position: "absolute",
-                width: Dimensions.get("screen").width - 36,
-                top: Dimensions.get("screen").height / 2.6,
-                borderRadius: 10,
-                borderWidth: 1,
-                borderColor: "#efefef",
-                marginHorizontal: 18,
-                zIndex: 4,
-              }}
-            ></View>
+            <View style={styles.homeBanner}></View>
           </ImageBackground>
           <Space height={Dimensions.get("screen").height / 40} />
 
@@ -259,33 +218,22 @@ const Home = () => {
             showsHorizontalScrollIndicator={false}
             style={{ marginTop: Dimensions.get("screen").height / 10 }}
           >
-            <View style={{ flexDirection: "row", paddingHorizontal: 18 }}>
+            <View style={styles.categoriesGroupName}>
               {categories.map((item) => (
                 <>
-                  <View
-                    style={{
-                      borderColor: "#efefef",
-                      borderWidth: 1,
-                      // backgroundColor: "red",
-                      borderRadius: 6,
-                    }}
-                  >
+                  <View style={styles.categoriesContainer}>
                     <TouchableOpacity
-                      style={{
-                        // backgroundColor: "red",
-                        borderRadius: 6,
-                      }}
+                      style={styles.categoriesTouchable}
                       onPress={() => navigation.navigate("Category", item)}
                     >
-                      <View style={{ paddingHorizontal: 12 }}>
+                      <View style={styles.categoriesNameContainer}>
                         <ListText
                           text={`${item.category_name}`}
-                          style={{ justifyContent: "center", fontSize: 16 }}
+                          style={styles.categoriesName}
                         />
                       </View>
                     </TouchableOpacity>
                   </View>
-
                   <Space width={20} />
                 </>
               ))}
@@ -321,12 +269,12 @@ const Home = () => {
   const email = useSelector((state) => state.authLoginReducer.auth_form.email);
   //
   //debug
-  console.log("email:", email);
-  console.log("error:", error);
-  console.log("token_home:", token);
+  // console.log("email:", email);
+  // console.log("error:", error);
+  // console.log("token_home:", token);
   // console.log("avatar:", avatar);
-  console.log("avaImg:", avaImg);
-  console.log("dimension:", styles.image);
+  // console.log("avaImg:", avaImg);
+  // console.log("dimension:", styles.image);
 
   return (
     <View style={{ backgroundColor: "green" }}>
@@ -350,36 +298,51 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
-  },
-  screen: {
     flex: 1,
-    // backgroundColor: "red",
   },
+
+  screen: {
+    // backgroundColor: "red",
+    flex: 1,
+  },
+
   containerProduct: {
+    // backgroundColor: "aqua",
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
-    backgroundColor: "aqua",
     alignItems: "center",
     padding: 10,
   },
+
   subContainerProduct: {
+    // backgroundColor: "#fff",
     paddingHorizontal: 12,
     flex: 1,
     flexWrap: "wrap",
-    // backgroundColor: "#fff",
   },
+
   containerList: {
+    // backgroundColor: "yellow",
     // flex: 1,
     flexDirection: "column",
-    backgroundColor: "yellow",
   },
+
   subContainerList: {
-    alignContent: "stretch",
     // backgroundColor: "red",
+    alignContent: "stretch",
     padding: 6,
+  },
+
+  contentHeader: {
+    // backgroundColor: "aqua",
+    flex: 1,
+    justifyContent: "center",
+    flexDirection: "column",
+    marginTop: 30,
+    marginBottom: 100,
+    alignItems: "center",
   },
 
   homeHeader: {
@@ -388,8 +351,23 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
 
-  carrouselContainer: {
-    flexDirection: "row",
+  pointTitleContainer: {
+    // backgroundColor: "red",
+    width: 90,
+    // top: -Dimensions.get("screen").height / 6,
+    backgroundColor: "green",
+    borderRadius: 100,
+    // opacity: 0.6,
+  },
+
+  pointContainer: {
+    // top: -Dimensions.get("screen").height / 6
+  },
+
+  textPoint: {
+    fontSize: 60,
+    textAlign: "center",
+    fontFamily: "CircularStd-Medium",
   },
 
   headerContainer: {
@@ -404,10 +382,20 @@ const styles = StyleSheet.create({
   titleHeaderContainer: {
     position: "relative",
     justifyContent: "center",
-    top: -Dimensions.get("screen").height / 13,
-    flex: 1,
-    // flexDirection: "column",
+    marginTop: 20,
+    // top: -Dimensions.get("screen").height / 13,
     // backgroundColor: "red",
+  },
+
+  subTitleContainer: {
+    paddingBottom: 40,
+  },
+
+  subTitle: {
+    // backgroundColor: "red",
+    fontFamily: "CircularStd-Book",
+    fontSize: 18,
+    textAlign: "center",
   },
 
   iconTitleUserContainer: {
@@ -415,23 +403,63 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "baseline",
   },
+
   iconTitle: {
     fontSize: 36,
   },
-  textTitle: { fontSize: 32, fontFamily: "CircularStd-Bold" },
 
-  // image: {
-  //   flex: 1,
-  //   justifyContent: "center",
-  //   resizeMode: "cover",
-  //   height: 380,
-  // },
+  textTitle: {
+    fontSize: 32,
+    fontFamily: "CircularStd-Bold",
+  },
+
+  homeBanner: {
+    backgroundColor: "#fff",
+    height: Dimensions.get("screen").height / 5,
+    position: "absolute",
+    width: Dimensions.get("screen").width - 36,
+    top: Dimensions.get("screen").height / 2.6,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#efefef",
+    marginHorizontal: 18,
+    zIndex: 4,
+  },
 
   foodListsContainer: {
     // backgroundColor: "red",
   },
 
-  //
+  carrouselContainer: {
+    flexDirection: "row",
+  },
+
+  categoriesGroupName: {
+    flexDirection: "row",
+    paddingHorizontal: 18,
+  },
+
+  categoriesContainer: {
+    // backgroundColor: "red",
+    borderColor: "#efefef",
+    borderWidth: 1,
+    borderRadius: 6,
+  },
+
+  categoriesTouchable: {
+    // backgroundColor: "red",
+    borderRadius: 6,
+  },
+
+  categoriesNameContainer: {
+    paddingHorizontal: 12,
+  },
+
+  categoriesName: {
+    justifyContent: "center",
+    fontSize: 16,
+  },
+
   //FlatList
   containerFlatlist: {
     flex: 1,
@@ -452,10 +480,10 @@ const styles = StyleSheet.create({
   },
 
   item: {
+    // backgroundColor: "red",
     paddingHorizontal: 10,
     paddingTop: 10,
     paddingBottom: 10,
-    // backgroundColor: "red",
   },
   itemText: {
     color: "#000",
@@ -482,6 +510,7 @@ const styles = StyleSheet.create({
   itemStar: {
     paddingRight: 2,
   },
+
   itemStars: {
     flexDirection: "row",
   },
