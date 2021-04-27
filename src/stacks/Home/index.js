@@ -27,6 +27,7 @@ import {
   Space,
   ImageSliderFlatList,
   Carousel,
+  ModalBottom,
 } from "../../components";
 import { getData } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
@@ -146,6 +147,7 @@ const numColumns = 2;
 
 const Home = () => {
   const [token, setToken] = useState();
+  const [isModalVisible, setModalVisible] = useState(false);
   const ref = useRef();
 
   const dispatch = useDispatch();
@@ -161,6 +163,10 @@ const Home = () => {
       dispatch(whoAmiAction(user.accessToken));
       setToken(user.accessToken);
     });
+  };
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   };
 
   const FlatListHeaderHome = () => (
@@ -198,6 +204,7 @@ const Home = () => {
                   // onPress={() => navigation.navigate("Category", item)}
                   style={styles.pointTitleContainer}
                   activeOpacity={0.6}
+                  onPress={toggleModal}
                 >
                   <ListText
                     paddingX={10}
@@ -282,6 +289,7 @@ const Home = () => {
   // console.log("avatar:", avatar);
   // console.log("avaImg:", avaImg);
   // console.log("dimension:", styles.image);
+  console.log(isModalVisible);
 
   return (
     <View style={{ backgroundColor: "green" }}>
@@ -296,6 +304,14 @@ const Home = () => {
         ListHeaderComponent={FlatListHeaderHome}
         columnWrapperStyle={styles.containerFlatlist}
         showsVerticalScrollIndicator={false}
+      />
+      <ModalBottom
+        onBackdropPress={toggleModal}
+        isVisible={isModalVisible}
+        onPressClose={toggleModal}
+        // onPressDefault={SetAddressDefault}
+        // onPressDelete={DeleteAddress}
+        // modalLog={modalLog}
       />
     </View>
   );

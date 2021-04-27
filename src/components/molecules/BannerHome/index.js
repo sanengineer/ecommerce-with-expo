@@ -8,12 +8,36 @@ import {
   ImageBackground,
 } from "react-native";
 
-import { ImageBannerDummy } from "../../../assets";
+import { ImageBannerDummy, ImageHeaderBg } from "../../../assets";
 import { LinearGradient } from "expo-linear-gradient";
+import { Touchable } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+const slideList = [
+  {
+    id: 1,
+    emoji: "🔖",
+    image: ImageHeaderBg,
+    title: "Lets Create Account For More Benefit",
+    subtitle: "subtitle",
+  },
+  {
+    id: 2,
+    emoji: "🤝",
+    image: ImageBannerDummy,
+    title: "Buy 1 Get 1. Buy 10 Get 10.",
+    subtitle: "subtitle",
+  },
+  {
+    id: 3,
+    emoji: "🎊",
+    // image: ImageBannerDummy,
+    title: "Order More To Get More Point!",
+    subtitle: "subtitle",
+  },
+];
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
-
-console.log(Dimensions.get("screen"));
 
 const styles = StyleSheet.create({
   slide: {
@@ -24,7 +48,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     // borderRadius: 14,
     // paddingHorizontal: 10,
-    // backgroundColor: "red",
+    backgroundColor: "black",
   },
   slideImage: {
     // width: 330,
@@ -66,63 +90,57 @@ const styles = StyleSheet.create({
   },
 });
 
-const slideList = Array.from({ length: 4 }).map((_, i) => {
-  return {
-    id: i,
-    image: ImageBannerDummy,
-    title: "title",
-    subtitle: "subtitle",
-  };
-});
-
 const Slide = memo(function Slide({ data }) {
   return (
     <View style={styles.slide}>
-      <ImageBackground source={data.image} style={styles.slideImage}>
-        <LinearGradient
-          style={{
-            // backgroundColor: "black",
-            // opacity: 0.5,
-            width: "100%",
-            height: "100%",
-            // position: "absolute",
-          }}
-          colors={["rgba(0,0,0,0.5)", "transparent"]}
-        >
-          <View
+      <TouchableOpacity activeOpacity={0.7}>
+        <ImageBackground source={data.image} style={styles.slideImage}>
+          <LinearGradient
             style={{
-              top: Dimensions.get("screen").height / 60,
-              left: Dimensions.get("screen").width / 22,
-              width: 200,
-              height: 100,
-              flex: 1,
-              flexDirection: "column",
-              overflow: "hidden",
+              // backgroundColor: "black",
+              // opacity: 0.5,
+              width: "100%",
+              height: "100%",
+              // position: "absolute",
             }}
+            colors={["rgba(0,0,0,0.5)", "transparent"]}
           >
-            <Text
+            <View
               style={{
-                color: "#fff",
-                fontFamily: "CircularStd-Bold",
-                fontSize: 36,
+                top: Dimensions.get("screen").height / 50,
+                left: Dimensions.get("screen").width / 26,
+                width: 200,
+                height: 100,
+                flex: 1,
+                flexDirection: "column",
+                overflow: "hidden",
               }}
             >
-              🤝
-            </Text>
-            <Text
-              style={{
-                color: "#fff",
-                fontFamily: "CircularStd-Black",
-                fontSize: 20,
-                width: 160,
-                // backgroundColor: "red",
-              }}
-            >
-              BUY 1 GET 1 BUY 10 GET 10.
-            </Text>
-          </View>
-        </LinearGradient>
-      </ImageBackground>
+              <Text
+                style={{
+                  color: "#fff",
+                  fontFamily: "CircularStd-Bold",
+                  fontSize: 32,
+                }}
+              >
+                {data.emoji}
+              </Text>
+              <Text
+                style={{
+                  color: "#fff",
+                  fontFamily: "CircularStd-Black",
+                  fontSize: 18,
+                  width: 180,
+                  textTransform: "capitalize",
+                  // backgroundColor: "red",
+                }}
+              >
+                {data.title}
+              </Text>
+            </View>
+          </LinearGradient>
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   );
 });
@@ -190,6 +208,10 @@ export default function Carousel() {
   const renderItem = useCallback(function renderitem({ item }) {
     return <Slide data={item} />;
   }, []);
+
+  //
+  //debug
+  console.log("slide_list:", slideList);
 
   return (
     <>
