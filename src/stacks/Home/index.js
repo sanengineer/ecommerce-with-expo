@@ -154,207 +154,6 @@ const categories = [
 
 const numColumns = 2;
 
-const Home = () => {
-  const [token, setToken] = useState();
-  const [isModalVisible, setModalVisible] = useState(false);
-  const ref = useRef();
-
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
-  const error = useSelector((state) => state.who_ami_reducer);
-  const avaImg = useSelector((state) => state.who_ami_reducer.who_ami.avatar);
-
-  useScrollToTop(ref);
-
-  const getToken = async () => {
-    await getData("user").then((user) => {
-      console.log("token_home_stack:", user.accessToken);
-      dispatch(whoAmiAction(user.accessToken));
-      setToken(user.accessToken);
-    });
-  };
-
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
-
-  const FlatListHeaderHome = () => (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.foodListsContainer}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.screen}>
-          {/* <View style={styles.carrouselContainer}>
-           
-          </View> */}
-
-          <ImageBackground
-            style={styles.headerContainer}
-            source={ImageHeaderBg}
-          >
-            <View style={{ position: "absolute", right: 20, top: 40 }}>
-              <TouchableOpacity activeOpacity={0.7}>
-                <Text style={{ fontSize: 20, padding: 5 }}>🔔</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.contentHeader}>
-              <View style={styles.titleHeaderContainer}>
-                <View style={styles.iconTitleUserContainer}>
-                  <Text style={styles.iconTitle}>👋</Text>
-                  <Text style={styles.textTitle}>Hai, San!</Text>
-                </View>
-              </View>
-              <View style={styles.subTitleContainer}>
-                <Text style={styles.subTitle}>Ayo pesan lagi !</Text>
-              </View>
-              <View>
-                <TouchableOpacity
-                  // onPress={() => navigation.navigate("Category", item)}
-                  style={styles.pointTitleContainer}
-                  activeOpacity={0.6}
-                  onPress={toggleModal}
-                >
-                  <ListText
-                    paddingX={10}
-                    paddingY={6}
-                    text={"💰 Point Kamu"}
-                    size={10}
-                    color={"#fff"}
-                  />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.pointContainer}>
-                <Text style={styles.textPoint}>2000</Text>
-              </View>
-            </View>
-            <View style={styles.homeBannerContainer}>
-              {/* <ImageSliderFlatList /> */}
-              {/* <ImageSlider /> */}
-              <Carousel />
-            </View>
-          </ImageBackground>
-          <Space height={Dimensions.get("screen").height / 40} />
-
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{ marginTop: Dimensions.get("screen").height / 10 }}
-          >
-            <View style={styles.categoriesGroupName}>
-              {categories.map((item) => (
-                <>
-                  <View style={styles.categoriesContainer}>
-                    <TouchableOpacity
-                      style={styles.categoriesTouchable}
-                      onPress={() => navigation.navigate("Category", item)}
-                    >
-                      <View style={styles.categoriesNameContainer}>
-                        <ListText
-                          text={`${item.category_name}`}
-                          style={styles.categoriesName}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                  <Space width={20} />
-                </>
-              ))}
-            </View>
-          </ScrollView>
-
-          <Space height={10} />
-        </View>
-      </ScrollView>
-    </View>
-  );
-
-  const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={() => navigation.navigate("Product", item)}
-      >
-        <Image source={item.image} style={styles.itemImage} />
-
-        {item.promo ? (
-          <View
-            style={{
-              position: "absolute",
-              borderBottomRightRadius: 10,
-              backgroundColor: "green",
-              paddingRight: 6,
-              paddingBottom: 4,
-              paddingTop: 4,
-              paddingLeft: 4,
-            }}
-          >
-            <Text
-              style={{
-                color: "#fff",
-                textTransform: "capitalize",
-                fontFamily: "CircularStd-Bold",
-              }}
-            >
-              promo
-            </Text>
-          </View>
-        ) : null}
-
-        <View style={styles.item}>
-          <Text style={styles.itemText}>{item.name}</Text>
-          <Space height={12} />
-          <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
-        </View>
-      </TouchableOpacity>
-    </View>
-  );
-
-  useEffect(() => {
-    getToken();
-  }, []);
-
-  const email = useSelector((state) => state.authLoginReducer.auth_form.email);
-  //
-  //debug
-  // console.log("email:", email);
-  // console.log("error:", error);
-  // console.log("token_home:", token);
-  // console.log("avatar:", avatar);
-  // console.log("avaImg:", avaImg);
-  // console.log("dimension:", styles.image);
-  console.log(isModalVisible);
-
-  return (
-    <View style={{ backgroundColor: "green" }}>
-      <FlatList
-        ref={ref}
-        // data={formatData(data, numColumns)}
-        data={data}
-        // style={styles.containerFlatlist}
-        renderItem={renderItem}
-        numColumns={numColumns}
-        keyExtractor={(item, index) => item.product_id}
-        ListHeaderComponent={FlatListHeaderHome}
-        columnWrapperStyle={styles.containerFlatlist}
-        showsVerticalScrollIndicator={false}
-      />
-      <ModalCenter
-        onBackdropPress={toggleModal}
-        isVisible={isModalVisible}
-        onPressClose={toggleModal}
-        textTitle="disclaimer  🚨"
-        textContent="Point diperoleh setelah melakukan pembayaran padaa produk yang tertera info cashback atau promo. 1 point sama dengan 1 rupiah."
-        // onPressDefault={SetAddressDefault}
-        // onPressDelete={DeleteAddress}
-        // modalLog={modalLog}
-      />
-    </View>
-  );
-};
-
-export default Home;
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
@@ -402,6 +201,26 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 100,
     alignItems: "center",
+  },
+
+  notifContainer: {
+    position: "absolute",
+    right: 2,
+    top: 30,
+  },
+
+  notifTouch: {
+    // backgroundColor: "red",
+    width: 40,
+    height: 40,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  notifText: {
+    fontSize: 20,
+    padding: 5,
   },
 
   homeHeader: {
@@ -488,6 +307,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 18,
     zIndex: 4,
     overflow: "hidden",
+  },
+
+  promoStickerProductContainer: {
+    position: "absolute",
+    borderBottomRightRadius: 10,
+    backgroundColor: "green",
+    paddingRight: 6,
+    paddingBottom: 4,
+    paddingTop: 4,
+    paddingLeft: 4,
+  },
+
+  promoText: {
+    color: "#fff",
+    textTransform: "capitalize",
+    fontFamily: "CircularStd-Bold",
   },
 
   foodListsContainer: {
@@ -584,3 +419,183 @@ const styles = StyleSheet.create({
     color: "#979797",
   },
 });
+
+const Home = () => {
+  const [token, setToken] = useState();
+  const [isModalVisible, setModalVisible] = useState(false);
+  const ref = useRef();
+
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const error = useSelector((state) => state.who_ami_reducer);
+  const avaImg = useSelector((state) => state.who_ami_reducer.who_ami.avatar);
+
+  useScrollToTop(ref);
+
+  const getToken = async () => {
+    await getData("user").then((user) => {
+      console.log("token_home_stack:", user.accessToken);
+      dispatch(whoAmiAction(user.accessToken));
+      setToken(user.accessToken);
+    });
+  };
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
+  const FlatListHeaderHome = () => (
+    <View style={styles.container}>
+      <ScrollView
+        style={styles.foodListsContainer}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.screen}>
+          <ImageBackground
+            style={styles.headerContainer}
+            source={ImageHeaderBg}
+          >
+            <View style={styles.notifContainer}>
+              <TouchableOpacity
+                style={styles.notifTouch}
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate("Notification")}
+              >
+                <Text style={styles.notifText}>🔔</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.contentHeader}>
+              <View style={styles.titleHeaderContainer}>
+                <View style={styles.iconTitleUserContainer}>
+                  <Text style={styles.iconTitle}>👋</Text>
+                  <Text style={styles.textTitle}>Hai, San!</Text>
+                </View>
+              </View>
+              <View style={styles.subTitleContainer}>
+                <Text style={styles.subTitle}>Ayo pesan lagi !</Text>
+              </View>
+              <View>
+                <TouchableOpacity
+                  style={styles.pointTitleContainer}
+                  activeOpacity={0.6}
+                  onPress={toggleModal}
+                >
+                  <ListText
+                    paddingX={10}
+                    paddingY={6}
+                    text={"💰 Point Kamu"}
+                    size={10}
+                    color={"#fff"}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.pointContainer}>
+                <Text style={styles.textPoint}>2000</Text>
+              </View>
+            </View>
+            <View style={styles.homeBannerContainer}>
+              <Carousel />
+            </View>
+          </ImageBackground>
+          <Space height={Dimensions.get("screen").height / 40} />
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ marginTop: Dimensions.get("screen").height / 10 }}
+          >
+            <View style={styles.categoriesGroupName}>
+              {categories.map((item) => (
+                <>
+                  <View style={styles.categoriesContainer}>
+                    <TouchableOpacity
+                      style={styles.categoriesTouchable}
+                      onPress={() => navigation.navigate("Category", item)}
+                    >
+                      <View style={styles.categoriesNameContainer}>
+                        <ListText
+                          text={`${item.category_name}`}
+                          style={styles.categoriesName}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                  <Space width={20} />
+                </>
+              ))}
+            </View>
+          </ScrollView>
+
+          <Space height={10} />
+        </View>
+      </ScrollView>
+    </View>
+  );
+
+  const renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate("Product", item)}
+      >
+        <Image source={item.image} style={styles.itemImage} />
+
+        {item.promo ? (
+          <View style={styles.promoStickerProductContainer}>
+            <Text style={styles.promoText}>promo</Text>
+          </View>
+        ) : null}
+
+        <View style={styles.item}>
+          <Text style={styles.itemText}>{item.name}</Text>
+          <Space height={12} />
+          <Text style={styles.itemTextPrice}>Rp. {item.price}</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
+  );
+
+  useEffect(() => {
+    getToken();
+  }, []);
+
+  const email = useSelector((state) => state.authLoginReducer.auth_form.email);
+  //
+  //debug
+  // console.log("email:", email);
+  // console.log("error:", error);
+  // console.log("token_home:", token);
+  // console.log("avatar:", avatar);
+  // console.log("avaImg:", avaImg);
+  // console.log("dimension:", styles.image);
+  // console.log(isModalVisible);
+
+  return (
+    <View style={{ backgroundColor: "green" }}>
+      <FlatList
+        ref={ref}
+        // data={formatData(data, numColumns)}
+        data={data}
+        // style={styles.containerFlatlist}
+        renderItem={renderItem}
+        numColumns={numColumns}
+        keyExtractor={(item, index) => item.product_id}
+        ListHeaderComponent={FlatListHeaderHome}
+        columnWrapperStyle={styles.containerFlatlist}
+        showsVerticalScrollIndicator={false}
+      />
+      <ModalCenter
+        onBackdropPress={toggleModal}
+        isVisible={isModalVisible}
+        onPressClose={toggleModal}
+        textTitle="disclaimer  🚨"
+        textContent="Point diperoleh setelah melakukan pembayaran padaa produk yang tertera info cashback atau promo. 1 point sama dengan 1 rupiah."
+        // onPressDefault={SetAddressDefault}
+        // onPressDelete={DeleteAddress}
+        // modalLog={modalLog}
+      />
+    </View>
+  );
+};
+
+export default Home;

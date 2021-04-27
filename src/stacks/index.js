@@ -13,6 +13,7 @@ import Security from "./Security";
 import Category from "./Category";
 import Product from "./Product";
 import FastBuy from "./FastBuy";
+import Notification from "./Notification";
 
 export {
   LogIn,
@@ -30,4 +31,5 @@ export {
   Category,
   Product,
   FastBuy,
+  Notification,
 };

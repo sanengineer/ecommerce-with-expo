@@ -17,6 +17,7 @@ import {
   Category,
   Product,
   FastBuy,
+  Notification,
 } from "../stacks";
 import { BottomNav } from "../components";
 
@@ -132,6 +133,11 @@ const Router = () => {
       <Stack.Screen
         name="Security"
         component={Security}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Notification"
+        component={Notification}
         options={{ headerShown: false }}
       />
       {/* {categories.map((nav) => (
