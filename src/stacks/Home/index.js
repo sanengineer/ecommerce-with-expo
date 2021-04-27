@@ -180,7 +180,7 @@ const Home = () => {
           >
             <View style={{ position: "absolute", right: 20, top: 40 }}>
               <TouchableOpacity activeOpacity={0.7}>
-                <Text style={{ fontSize: 20 }}>🔔</Text>
+                <Text style={{ fontSize: 20, padding: 5 }}>🔔</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.contentHeader}>
@@ -193,9 +193,11 @@ const Home = () => {
               <View style={styles.subTitleContainer}>
                 <Text style={styles.subTitle}>Ayo pesan lagi !</Text>
               </View>
-              <View style={styles.pointTitleContainer}>
+              <View>
                 <TouchableOpacity
-                // onPress={() => navigation.navigate("Category", item)}
+                  // onPress={() => navigation.navigate("Category", item)}
+                  style={styles.pointTitleContainer}
+                  activeOpacity={0.6}
                 >
                   <ListText
                     paddingX={10}
@@ -210,7 +212,7 @@ const Home = () => {
                 <Text style={styles.textPoint}>2000</Text>
               </View>
             </View>
-            <View style={styles.homeBanner}>
+            <View style={styles.homeBannerContainer}>
               {/* <ImageSliderFlatList /> */}
               {/* <ImageSlider /> */}
               <Carousel />
@@ -356,30 +358,11 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
 
-  pointTitleContainer: {
-    // backgroundColor: "red",
-    width: 90,
-    // top: -Dimensions.get("screen").height / 6,
-    backgroundColor: "green",
-    borderRadius: 100,
-    // opacity: 0.6,
-  },
-
-  pointContainer: {
-    // top: -Dimensions.get("screen").height / 6
-  },
-
-  textPoint: {
-    fontSize: 60,
-    textAlign: "center",
-    fontFamily: "CircularStd-Medium",
-  },
-
   headerContainer: {
     flex: 1,
     alignItems: "center",
     height: Dimensions.get("screen").height / 2,
-    backgroundColor: "#17F147",
+    backgroundColor: "#18DA42",
     // backgroundColor:"#2701ff",
     position: "relative",
     resizeMode: "cover",
@@ -391,17 +374,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     // top: -Dimensions.get("screen").height / 13,
     // backgroundColor: "red",
-  },
-
-  subTitleContainer: {
-    paddingBottom: 40,
-  },
-
-  subTitle: {
-    // backgroundColor: "red",
-    fontFamily: "CircularStd-Book",
-    fontSize: 18,
-    textAlign: "center",
   },
 
   iconTitleUserContainer: {
@@ -417,17 +389,50 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 32,
     fontFamily: "CircularStd-Bold",
+    color: "#fff",
   },
 
-  homeBanner: {
+  subTitleContainer: {
+    paddingBottom: 40,
+  },
+
+  subTitle: {
+    // backgroundColor: "red",
+    fontFamily: "CircularStd-Bold",
+    fontSize: 18,
+    textAlign: "center",
+    color: "#fff",
+  },
+
+  pointTitleContainer: {
+    // backgroundColor: "red",
+    width: 90,
+    // top: -Dimensions.get("screen").height / 6,
+    backgroundColor: "green",
+    borderRadius: 100,
+    opacity: 0.8,
+  },
+
+  pointContainer: {
+    // top: -Dimensions.get("screen").height / 6
+  },
+
+  textPoint: {
+    fontSize: 60,
+    textAlign: "center",
+    fontFamily: "CircularStd-Medium",
+    color: "#fff",
+  },
+
+  homeBannerContainer: {
     backgroundColor: "#fff",
     height: Dimensions.get("screen").height / 5,
     position: "absolute",
     width: Dimensions.get("screen").width - 36,
     top: Dimensions.get("screen").height / 2.6,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#efefef",
+    borderRadius: 20,
+    borderWidth: 8,
+    borderColor: "#fff",
     marginHorizontal: 18,
     zIndex: 4,
     overflow: "hidden",

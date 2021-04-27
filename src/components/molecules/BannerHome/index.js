@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import { ImageBannerDummy } from "../../../assets";
+import { LinearGradient } from "expo-linear-gradient";
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
 
@@ -20,6 +21,8 @@ const styles = StyleSheet.create({
     // height: windowHeight,
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
+    // borderRadius: 14,
     // paddingHorizontal: 10,
     // backgroundColor: "red",
   },
@@ -27,7 +30,8 @@ const styles = StyleSheet.create({
     // width: 330,
     // height: 150,
     height: Dimensions.get("screen").height / 5,
-    width: Dimensions.get("screen").width - 38,
+    width: Dimensions.get("screen").width - 52,
+
     // resizeMode: "cover",
   },
   slideTitle: {
@@ -48,12 +52,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 2,
   },
   paginationDotActive: {
-    backgroundColor: "#dedede",
+    backgroundColor: "#fff",
     width: 12,
     height: 4,
   },
   paginationDotInactive: {
-    backgroundColor: "#efefef",
+    backgroundColor: "#fff",
     width: 4,
     height: 4,
   },
@@ -74,7 +78,51 @@ const slideList = Array.from({ length: 4 }).map((_, i) => {
 const Slide = memo(function Slide({ data }) {
   return (
     <View style={styles.slide}>
-      <ImageBackground source={data.image} style={styles.slideImage} />
+      <ImageBackground source={data.image} style={styles.slideImage}>
+        <LinearGradient
+          style={{
+            // backgroundColor: "black",
+            // opacity: 0.5,
+            width: "100%",
+            height: "100%",
+            // position: "absolute",
+          }}
+          colors={["rgba(0,0,0,0.5)", "transparent"]}
+        >
+          <View
+            style={{
+              top: Dimensions.get("screen").height / 60,
+              left: Dimensions.get("screen").width / 22,
+              width: 200,
+              height: 100,
+              flex: 1,
+              flexDirection: "column",
+              overflow: "hidden",
+            }}
+          >
+            <Text
+              style={{
+                color: "#fff",
+                fontFamily: "CircularStd-Bold",
+                fontSize: 36,
+              }}
+            >
+              🤝
+            </Text>
+            <Text
+              style={{
+                color: "#fff",
+                fontFamily: "CircularStd-Black",
+                fontSize: 20,
+                width: 160,
+                // backgroundColor: "red",
+              }}
+            >
+              BUY 1 GET 1 BUY 10 GET 10.
+            </Text>
+          </View>
+        </LinearGradient>
+      </ImageBackground>
     </View>
   );
 });
