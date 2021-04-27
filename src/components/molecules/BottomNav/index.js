@@ -131,7 +131,7 @@ const styles = StyleSheet.compose({
     flexDirection: "row",
     borderTopWidth: 1,
     borderStyle: "solid",
-    borderColor: "#dedede",
+    borderColor: "#fafafa",
     minHeight: 40,
     paddingTop: 6,
     paddingBottom: 6,

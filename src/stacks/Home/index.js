@@ -26,6 +26,7 @@ import {
   ListText,
   Space,
   ImageSliderFlatList,
+  Carousel,
 } from "../../components";
 import { getData } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
@@ -170,7 +171,7 @@ const Home = () => {
       >
         <View style={styles.screen}>
           {/* <View style={styles.carrouselContainer}>
-            <ImageSliderFlatList />
+           
           </View> */}
 
           <ImageBackground
@@ -209,7 +210,11 @@ const Home = () => {
                 <Text style={styles.textPoint}>2000</Text>
               </View>
             </View>
-            <View style={styles.homeBanner}></View>
+            <View style={styles.homeBanner}>
+              {/* <ImageSliderFlatList /> */}
+              {/* <ImageSlider /> */}
+              <Carousel />
+            </View>
           </ImageBackground>
           <Space height={Dimensions.get("screen").height / 40} />
 
@@ -375,6 +380,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: Dimensions.get("screen").height / 2,
     backgroundColor: "#17F147",
+    // backgroundColor:"#2701ff",
     position: "relative",
     resizeMode: "cover",
   },
@@ -424,6 +430,7 @@ const styles = StyleSheet.create({
     borderColor: "#efefef",
     marginHorizontal: 18,
     zIndex: 4,
+    overflow: "hidden",
   },
 
   foodListsContainer: {

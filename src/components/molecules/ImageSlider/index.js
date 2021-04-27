@@ -8,26 +8,33 @@ import {
   AvocadoFruit,
   StrawberryFruit,
   MangoFruit,
+  ImageBannerDummy,
 } from "../../../assets";
+import { Dimensions } from "react-native";
 
-const data = [ShoesImage, AvocadoFruit, StrawberryFruit, MangoFruit];
+const data = [
+  ImageBannerDummy,
+  ImageBannerDummy,
+  ImageBannerDummy,
+  ImageBannerDummy,
+];
 
 const dataFlatList = [
+  // {
+  //   image_id: 1,
+  //   image: AvocadoFruit,
+  // },
+  // {
+  //   image_id: 2,
+  //   image: AvocadoFruit,
+  // },
   {
-    image_id: 1,
+    image_id: 3,
     image: AvocadoFruit,
   },
   {
-    image_id: 2,
-    image: ShoesImage,
-  },
-  {
-    image_id: 3,
-    image: MangoFruit,
-  },
-  {
     image_id: 4,
-    image: StrawberryFruit,
+    image: AvocadoFruit,
   },
 ];
 
@@ -42,23 +49,18 @@ const ImageSlider = () => {
   //   };
   //
   //debug
-  console.log("image state ImageSlider:", image);
+  // console.log("image state ImageSlider:", image);
 
   return (
-    <View style={{ flex: 1, flexDirection: "row" }}>
+    <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
       <SliderBox
         images={image}
         autoplay
         circleLoop
-        sliderBoxHeight={260}
-        paginationBoxVerticalPadding={10}
+        resizeMode={"cover"}
+        // sliderBoxHeight={120}
+        paginationBoxVerticalPadding={0}
         // parentWidth={600}
-        // imageComponentStyle={{
-        //   backgroundColor: "red",
-        //   padding: 0,
-
-        //   position: "absolute",
-        // }}
         onCurrentImagePressed={(index) => console.log(`image ${index} pressed`)}
       />
     </View>
@@ -71,7 +73,7 @@ const Preview = ({ style, item, imageKey, onPress, index, active, local }) => {
       <View
         style={
           {
-            //   backgroundColor: "cyan"
+            // height: 200,
           }
         }
       >
@@ -87,7 +89,7 @@ const ImageSliderFlatList = () => {
       //   style={styles.imageSlider}
       data={dataFlatList}
       imageKey={"image"}
-      //   height={240}
+      // height={240}
       component={<Preview />}
       //   animation
       //   local
@@ -99,8 +101,10 @@ export { ImageSlider, ImageSliderFlatList };
 
 const styles = StyleSheet.create({
   imageSlider: {
-    resizeMode: "cover",
-    height: 220,
+    // height: 100,
+    resizeMode: "center",
+
+    // height: Dimensions.get("screen").width / 2,
     // backgroundColor: "red",
     // padding: 100,
   },

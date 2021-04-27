@@ -5,6 +5,7 @@ import ListText from "./ListText";
 import ModalBottom from "./ModalBottom";
 import NavListTextLabel from "./NavListTextLabel";
 import { ImageSlider, ImageSliderFlatList } from "./ImageSlider";
+import Carousel from "./BannerHome";
 
 export {
   Header,
@@ -15,4 +16,5 @@ export {
   NavListTextLabel,
   ImageSlider,
   ImageSliderFlatList,
+  Carousel,
 };
