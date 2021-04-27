@@ -28,6 +28,7 @@ import {
   ImageSliderFlatList,
   Carousel,
   ModalBottom,
+  ModalCenter,
 } from "../../components";
 import { getData } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,6 +54,7 @@ const data = [
     price: 30000,
     stock: 20,
     image: CoffeeCup,
+    promo: true,
     // num_rate: 10,
   },
   {
@@ -62,6 +64,7 @@ const data = [
     price: 12000,
     stock: 10,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 30,
   },
   {
@@ -71,6 +74,7 @@ const data = [
     price: 12000,
     stock: 40,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 20,
   },
   {
@@ -80,6 +84,7 @@ const data = [
     price: 12000,
     stock: 22,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 12,
   },
   {
@@ -89,6 +94,7 @@ const data = [
     price: 12000,
     stock: 16,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 12,
   },
   {
@@ -98,6 +104,7 @@ const data = [
     price: 12000,
     stock: 18,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 14,
   },
   {
@@ -107,6 +114,7 @@ const data = [
     price: 12000,
     stock: 18,
     image: CoffeeCup,
+    promo: false,
     // num_rate: 16,
   },
   {
@@ -116,6 +124,7 @@ const data = [
     price: 12000,
     stock: 18,
     image: CoffeeCup,
+    promo: true,
     // num_rate: 16,
   },
 ];
@@ -208,7 +217,7 @@ const Home = () => {
                 >
                   <ListText
                     paddingX={10}
-                    paddingY={4}
+                    paddingY={6}
                     text={"💰 Point Kamu"}
                     size={10}
                     color={"#fff"}
@@ -267,6 +276,31 @@ const Home = () => {
         onPress={() => navigation.navigate("Product", item)}
       >
         <Image source={item.image} style={styles.itemImage} />
+
+        {item.promo ? (
+          <View
+            style={{
+              position: "absolute",
+              borderBottomRightRadius: 10,
+              backgroundColor: "green",
+              paddingRight: 6,
+              paddingBottom: 4,
+              paddingTop: 4,
+              paddingLeft: 4,
+            }}
+          >
+            <Text
+              style={{
+                color: "#fff",
+                textTransform: "capitalize",
+                fontFamily: "CircularStd-Bold",
+              }}
+            >
+              promo
+            </Text>
+          </View>
+        ) : null}
+
         <View style={styles.item}>
           <Text style={styles.itemText}>{item.name}</Text>
           <Space height={12} />
@@ -305,10 +339,12 @@ const Home = () => {
         columnWrapperStyle={styles.containerFlatlist}
         showsVerticalScrollIndicator={false}
       />
-      <ModalBottom
+      <ModalCenter
         onBackdropPress={toggleModal}
         isVisible={isModalVisible}
         onPressClose={toggleModal}
+        textTitle="disclaimer  🚨"
+        textContent="Point diperoleh setelah melakukan pembayaran padaa produk yang tertera info cashback atau promo. 1 point sama dengan 1 rupiah."
         // onPressDefault={SetAddressDefault}
         // onPressDelete={DeleteAddress}
         // modalLog={modalLog}
